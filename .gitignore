@@ -17,3 +17,6 @@ build/
 
 # Nada de pacotes
 *.zip
+
+# Lixeira local (o ambiente do Claude nao pode apagar arquivos)
+_to_delete/

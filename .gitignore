@@ -1,0 +1,19 @@
+# Fotos originais em alta resolução — ficam só no computador
+_originais/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependências e builds (a Vercel gera sozinha)
+node_modules/
+dist/
+build/
+.next/
+
+# Configuração local da Vercel
+.vercel
+
+# Nada de pacotes
+*.zip

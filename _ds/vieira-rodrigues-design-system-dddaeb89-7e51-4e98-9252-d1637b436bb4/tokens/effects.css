@@ -1,0 +1,16 @@
+/* Efeitos — filtros de foto (a única "textura" da marca), scrim do hero e
+   o único box-shadow do sistema (botão flutuante do WhatsApp). Nada decorativo. */
+:root{
+  --filter-photo:grayscale(1) contrast(1.05); /* @kind other */
+  --filter-photo-hover:grayscale(0); /* @kind other */
+  --filter-hero:grayscale(.6) sepia(.62) saturate(1.5) brightness(.6) contrast(1.05); /* @kind other */
+  --filter-band:grayscale(1) brightness(.9); /* @kind other */
+  --scrim-hero:linear-gradient(180deg,rgba(20,19,16,.6) 0%,rgba(28,20,10,.2) 34%,rgba(20,19,16,.88) 100%); /* @kind other */
+  --header-scrolled:rgba(20,19,16,.92); /* @kind other */
+  --header-blur:blur(12px); /* @kind other */
+  --shadow-float:0 6px 22px rgba(20,19,16,.28); /* @kind shadow */
+  --ratio-photo:4/3; /* @kind other */
+  --ratio-article:16/10; /* @kind other */
+  --ratio-band:21/9; /* @kind other */
+  --ratio-carousel:1080/1350; /* @kind other */
+}

@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<title>Vieira-Rodrigues Advocacia</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/colors.css">
+<link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/typography.css">
+<link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/borders.css">
+<link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/motion.css">
+<link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/effects.css">
+<link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/base.css">
+<link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/styles.css">
+<script src="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: var(--paper-2); }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--roxo-deep); }
+  h1, h2, h3, h4 { margin: 0; }
+  @keyframes vr-drift { 0% { transform: scale(1.02) translateY(0); } 100% { transform: scale(1.09) translateY(-10px); } }
+  @keyframes vr-cycle {
+    0% { flex-grow: 1; filter: var(--filter-hero); }
+    4% { flex-grow: 2.4; filter: var(--filter-photo-hover); }
+    21% { flex-grow: 2.4; filter: var(--filter-photo-hover); }
+    25% { flex-grow: 1; filter: var(--filter-hero); }
+    100% { flex-grow: 1; filter: var(--filter-hero); }
+  }
+  @media (prefers-reduced-motion: reduce) { [data-hero-cycle] { animation: none !important; } }
+  @keyframes vr-open { 0% { opacity: 0; transform: translateY(14px); } 100% { opacity: 1; transform: none; } }
+  @keyframes vr-colorin { 0% { filter: var(--filter-photo); opacity: .55; } 100% { filter: none; opacity: 1; } }
+  @keyframes vr-grow { 0% { transform: scaleY(0); } 100% { transform: scaleY(1); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<div style="background: var(--paper-2); min-height: 100vh; font-family: var(--sans); color: var(--ink)">
+
+  <div style="background: var(--ink); color: rgba(255,255,255,.6); font-size: 12.5px">
+    <div style="display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center; justify-content: space-between; max-width: var(--wrap); margin: 0 auto; padding: 10px 40px">
+      <div style="display: flex; gap: 24px; flex-wrap: wrap">
+        <a href="mailto:diego@vieira-rodrigues.com" style="color: rgba(255,255,255,.85)">diego@vieira-rodrigues.com</a>
+        <a href="tel:+5583991715836" style="color: rgba(255,255,255,.85)">João Pessoa +55 83 99171-5836</a>
+        <a href="tel:+5511949626324" style="color: rgba(255,255,255,.85)">São Paulo +55 11 94962-6324</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="position: relative">
+    <header style="position: absolute; left: 0; right: 0; z-index: 60">
+      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px 20px; max-width: var(--wrap); margin: 0 auto; padding: 26px 40px">
+        <a href="#" onClick="{{ goHome }}" style="display: flex; flex-direction: column; gap: 5px; margin-right: 4px">
+          <span style="display: inline-flex; align-items: flex-end; font-family: var(--brand); font-weight: 800; font-size: 18px; line-height: .88; letter-spacing: -.045em; text-transform: uppercase; color: var(--paper-2); white-space: nowrap">
+            <span>
+              <span style="display: block">Vieira-</span>
+              <span style="display: block">Rodrigues</span>
+            </span>
+            <i style="width: 6px; height: 6px; background: var(--roxo); display: block; margin-left: 2px; margin-bottom: 1px; flex: 0 0 auto"></i>
+          </span>
+          <span style="font-size: 9.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.5)">Law Office</span>
+        </a>
+        <nav style="display: flex; flex: 1; justify-content: flex-end">
+          <ul style="display: flex; flex-wrap: wrap; gap: 10px 22px; list-style: none; margin: 0; padding: 0; justify-content: flex-end">
+            <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+              <li>
+                <a href="#" onClick="{{ item.onClick }}" style="position: relative; display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff; white-space: nowrap; padding-bottom: 6px" style-hover="color: rgba(255,255,255,.62)">{{ item.label }}</a>
+              </li>
+            </sc-for>
+          </ul>
+        </nav>
+        <button type="button" onClick="{{ openSearch }}" aria-label="Search" style="background: transparent; border: 1px solid rgba(255,255,255,.32); color: #fff; font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 9px 14px; cursor: pointer" style-hover="background: rgba(255,255,255,.12)">Search</button>
+        <a href="index.html" style="font-size: 12px; font-weight: 700; color: rgba(255,255,255,.7); letter-spacing: .13em">PT</a>
+      </div>
+    </header>
+
+    <div ref="{{ pageRef }}" style="transition: opacity .4s var(--ease), transform .4s var(--ease)">
+
+      <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <section style="position: relative; min-height: min(100vh, 880px); display: flex; flex-direction: column; justify-content: flex-end; background: var(--ink); isolation: isolate">
+            <div style="position: absolute; inset: 0; z-index: 0; overflow: hidden; display: flex">
+              <div style="position: relative; overflow: hidden; animation: vr-drift 22s var(--ease) infinite alternate, vr-cycle 20s var(--ease) 0s infinite; flex: 1 1 0; min-width: 0; transition: flex-grow 1100ms var(--ease), filter 1100ms var(--ease)" data-hero-cycle="1">
+                <image-slot id="hero-1" shape="rect" src="uploads/pexels-adriano-queiroz-dias-367417054-14465329.jpg" placeholder="Edifício Itália seen from the plaza, São Paulo" style="width: 100%; height: 100%; filter: inherit"></image-slot>
+              </div>
+              <div style="position: relative; overflow: hidden; animation: vr-drift 26s var(--ease) -6s infinite alternate, vr-cycle 20s var(--ease) 5s infinite; flex: 1 1 0; min-width: 0; transition: flex-grow 1100ms var(--ease), filter 1100ms var(--ease)" data-hero-cycle="1">
+                <image-slot id="hero-2" shape="rect" src="uploads/pexels-leonardodourado-17967169.jpg" placeholder="Lacerda Elevator and the bay, Salvador" style="width: 100%; height: 100%; filter: inherit"></image-slot>
+              </div>
+              <div style="position: relative; overflow: hidden; animation: vr-drift 30s var(--ease) -12s infinite alternate, vr-cycle 20s var(--ease) 10s infinite; flex: 1 1 0; min-width: 0; transition: flex-grow 1100ms var(--ease), filter 1100ms var(--ease)" data-hero-cycle="1">
+                <image-slot id="hero-3" shape="rect" src="uploads/pexels-renata-almene-29008945.jpg" placeholder="Corcovado at dawn, Rio de Janeiro" style="width: 100%; height: 100%; filter: inherit"></image-slot>
+              </div>
+              <div style="position: relative; overflow: hidden; animation: vr-drift 24s var(--ease) -18s infinite alternate, vr-cycle 20s var(--ease) 15s infinite; flex: 1 1 0; min-width: 0; transition: flex-grow 1100ms var(--ease), filter 1100ms var(--ease)" data-hero-cycle="1">
+                <image-slot id="hero-4" shape="rect" src="uploads/AdobeStock_340474835.jpeg" placeholder="Shoreline or cliff" style="width: 100%; height: 100%; filter: inherit"></image-slot>
+              </div>
+            </div>
+            <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
+            <div style="position: relative; z-index: 2; flex: 1 0 auto; min-height: fit-content; display: flex; align-items: center; justify-content: center; max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 120px 40px 32px; pointer-events: none">
+              <span style="display: inline-flex; align-items: flex-end; font-family: var(--brand); font-weight: 800; font-size: clamp(46px, 9vw, 118px); line-height: .88; letter-spacing: -.045em; text-transform: uppercase; color: var(--paper-2)">
+                <span>
+                  <span style="display: block">Vieira-</span>
+                  <span style="display: block">Rodrigues</span>
+                </span>
+                <i style="width: 24px; height: 24px; background: var(--roxo); display: block; margin-left: 6px; margin-bottom: 5px; flex: 0 0 auto"></i>
+              </span>
+            </div>
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 0 40px 88px">
+              <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.62); margin-bottom: 18px">URBAN PLANNING AND REAL ESTATE COUNSEL</span>
+              <h1 style="font-family: var(--display); color: #fff; max-width: 20ch; font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; margin-bottom: 32px">Every development starts with the statute book.</h1>
+              <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="white" arrow="{{ yes }}" onClick="{{ goConsultoria }}" hint-size="240px,44px">See how it works</x-import>
+            </div>
+          </section>
+
+          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <div data-reveal="1" style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 28px 56px; align-items: end; margin-bottom: 64px">
+                <h2 style="font-family: var(--display); font-size: var(--fs-decl); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">Zoning certainty, read with a developer’s and a tax lawyer’s eye.</h2>
+                <p style="margin: 0; font-size: var(--fs-note); color: var(--ink-3); max-width: var(--measure-note)">Every development runs into the same three questions. Handled by professionals working apart, the project stalls at city hall or loses margin.</p>
+              </div>
+              <div style="display: grid; gap: 40px 36px; grid-template-columns: repeat(3, minmax(0, 1fr))">
+                <sc-for list="{{ camadas }}" as="c" hint-placeholder-count="3">
+                  <div data-reveal="1" style="border-top: 1px solid var(--ink); padding-top: 20px">
+                    <span style="display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px">{{ c.label }}</span>
+                    <h3 style="font-family: var(--display); font-size: 21px; letter-spacing: -.02em; line-height: 1.18; font-weight: 700; margin-bottom: 10px">{{ c.title }}</h3>
+                    <span style="display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px">{{ c.foco }}</span>
+                    <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-3)">{{ c.text }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </section>
+
+          <section style="padding: 104px 0 0; background: var(--paper); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <div data-reveal="1" style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 28px 56px; align-items: start">
+                <div>
+                  <span style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3)">
+                    <i style="width: 9px; height: 9px; background: var(--roxo); display: block"></i>
+                    Practice
+                  </span>
+                  <h2 style="font-family: var(--display); font-size: var(--fs-h2); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; margin-top: 20px; max-width: 26ch">Zoning instruments that can change your project’s VGV — its gross sales value.</h2>
+                  <div style="margin-top: 34px">
+                    <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="solid" arrow="{{ yes }}" onClick="{{ goEspecialidades }}" hint-size="250px,44px">See every practice area</x-import>
+                  </div>
+                </div>
+                <p style="margin: 0; font-size: var(--fs-note); color: var(--ink-3); max-width: var(--measure-note)">Every development goes through the basic filings. What separates a viable project from a stalled one is how you use the density instruments.</p>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px; margin-top: 120px">
+                <sc-for list="{{ accItems }}" as="a" hint-placeholder-count="5">
+                  <div onMouseEnter="{{ a.onEnter }}" onMouseLeave="{{ a.onLeaveA }}" style="position: relative; padding-top: 20px; cursor: pointer" onClick="{{ a.onClick }}">
+                    <span style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--line); display: block"></span>
+                    <span style="position: absolute; top: 0; left: 0; height: 1px; background: var(--ink); display: block; width: {{ a.barW }}; transition: width .4s var(--ease)"></span>
+                    <h3 style="font-family: var(--display); font-size: 21px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: {{ a.cor }}; transition: color .25s var(--ease)">{{ a.nome }}</h3>
+                    <p style="margin: 14px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-3)">{{ a.texto }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="max-width: var(--wrap); margin: 56px auto 0; padding: 0 40px 104px">
+            <div style="position: relative; aspect-ratio: 21/9; overflow: hidden">
+              <sc-for list="{{ accItems }}" as="a" hint-placeholder-count="5">
+                <div style="position: absolute; inset: 0; opacity: {{ a.fotoOp }}; transition: opacity .7s var(--ease)">
+                  <image-slot shape="rect" id="{{ a.slotId }}" src="{{ a.img }}" placeholder="{{ a.slotHint }}" style="width: 100%; height: 100%"></image-slot>
+                </div>
+              </sc-for>
+            </div>
+            </div>
+          </section>
+
+          <section style="padding: 104px 0 0; background: var(--ink); color: #fff">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <div data-reveal="1" style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 28px 56px; align-items: start">
+                <div>
+                  <span style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.5)">
+                    <i style="width: 9px; height: 9px; background: var(--roxo); display: block"></i>
+                    Sectors we serve
+                  </span>
+                  <h2 style="font-family: var(--display); font-size: var(--fs-h2); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; margin-top: 20px; max-width: 24ch">The market’s language,<br><span style="color: rgba(255,255,255,.5)">a business reading.</span></h2>
+                  <div style="margin-top: 34px">
+                    <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="white" arrow="{{ yes }}" onClick="{{ goContato }}" hint-size="220px,44px">Talk to the lawyer</x-import>
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 14px; max-width: var(--measure-note)">
+                  <p style="margin: 0; font-size: var(--fs-note); color: rgba(255,255,255,.66)">At the decisive moments of a project, what settles the matter is not an abstract argument: it is knowing how the site works, how the sales-value model behaves and how much a regulatory restriction weighs on the investor’s margin.</p>
+                  <p style="margin: 0; font-size: var(--fs-note); color: rgba(255,255,255,.5)">We work inside the real estate chain and inside heritage protection, combining tax, zoning and environmental analysis to unlock deals.</p>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 120px">
+                <sc-for list="{{ setores }}" as="s" hint-placeholder-count="4">
+                  <div onMouseEnter="{{ s.onEnter }}" onMouseLeave="{{ s.onLeave }}" style="position: relative; padding-top: 20px; cursor: default">
+                    <span style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,.16); display: block"></span>
+                    <span style="position: absolute; top: 0; left: 0; height: 1px; background: #fff; display: block; width: {{ s.barW }}; transition: width .4s var(--ease)"></span>
+                    <h3 style="font-family: var(--display); font-size: 21px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: {{ s.cor }}; transition: color .25s var(--ease)">{{ s.nome }}</h3>
+                    <p style="margin: 12px 0 0; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.5)">{{ s.linha }}</p>
+                    <p style="margin: 14px 0 0; font-size: 14.5px; line-height: 1.55; color: rgba(255,255,255,.66)">{{ s.texto }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="height: 104px"></div>
+          </section>
+
+
+
+          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <div data-reveal="1" style="display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 46px">
+                <div>
+                  <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3)">Team</span>
+                  <h2 style="font-family: var(--display); font-size: var(--fs-h2); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; margin-top: 18px">The person who runs the case<br><span style="color: var(--ink-3)">is the person you talk to.</span></h2>
+                </div>
+                <div style="display: flex; gap: 10px">
+                  <button type="button" onClick="{{ carPrev }}" aria-label="Previous" style="width: 46px; height: 46px; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; font-size: 18px; line-height: 1" style-hover="background: var(--ink); color: #fff">←</button>
+                  <button type="button" onClick="{{ carNext }}" aria-label="Next" style="width: 46px; height: 46px; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; font-size: 18px; line-height: 1" style-hover="background: var(--ink); color: #fff">→</button>
+                </div>
+              </div>
+              <div ref="{{ carRef }}" style="display: grid; grid-auto-flow: column; grid-auto-columns: 300px; justify-content: start; gap: 32px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 8px">
+                <sc-for list="{{ people }}" as="p" hint-placeholder-count="4">
+                  <a href="#" onClick="{{ p.onClick }}" style="scroll-snap-align: start; background: var(--ink); color: #fff; display: block; text-decoration: none; --vr-ov: 0; --vr-tint: var(--filter-photo)" style-hover="--vr-ov: 1; --vr-tint: none">
+                    <div style="position: relative; aspect-ratio: 4/5; overflow: hidden">
+                      <image-slot shape="rect" id="{{ p.slotId }}" placeholder="{{ p.slotHint }}" style="width: 100%; height: 100%; filter: var(--vr-tint); transition: filter .45s var(--ease)"></image-slot>
+                      <div style="position: absolute; inset: 0; opacity: var(--vr-ov); transition: opacity .35s var(--ease); background: linear-gradient(180deg, rgba(20,19,16,.1), rgba(20,19,16,.72)); display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; gap: 18px">
+                        <div style="display: flex; flex-direction: column; gap: 8px">
+                          <sc-for list="{{ p.tags }}" as="g" hint-placeholder-count="2">
+                            <span style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #fff"><span style="width: 8px; height: 8px; background: var(--roxo); display: block"></span>{{ g.t }}</span>
+                          </sc-for>
+                        </div>
+                        <span style="width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.5); display: flex; align-items: center; justify-content: center; font-size: 17px">↗</span>
+                      </div>
+                    </div>
+                    <div style="padding: 26px">
+                      <div style="font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -.024em">{{ p.name }}</div>
+                      <div style="font-size: 13px; color: rgba(255,255,255,.7); margin-top: 4px">{{ p.role }}</div>
+                      <div style="font-size: 13px; color: rgba(255,255,255,.45); margin-top: 14px">{{ p.local }}</div>
+                    </div>
+                  </a>
+                </sc-for>
+              </div>
+            </div>
+            <sc-if value="{{ pessoaSel }}" hint-placeholder-val="{{ false }}">
+              <div style="position: fixed; inset: 0; z-index: 60; background: rgba(20,19,16,.6); display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; padding: 60px 20px">
+                <div style="width: 100%; max-width: 1100px; background: #1C1B17; color: #fff; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start">
+                  <div style="position: relative; aspect-ratio: 4/5; background: var(--ink)">
+                    <image-slot shape="rect" id="{{ pessoaSel.slotId }}" placeholder="{{ pessoaSel.slotHint }}" style="width: 100%; height: 100%; filter: var(--filter-photo)"></image-slot>
+                  </div>
+                  <div style="padding: 44px 44px 52px; display: flex; flex-direction: column; gap: 34px">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 24px">
+                      <h3 style="margin: 0; font-family: var(--display); font-weight: 700; font-size: 38px; line-height: 1.02; letter-spacing: -.032em">{{ pessoaSel.name }}<br><span style="color: rgba(255,255,255,.42)">{{ pessoaSel.role }}</span></h3>
+                      <button type="button" onClick="{{ fecharPessoa }}" aria-label="Close" style="flex: none; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.24); background: transparent; color: #fff; cursor: pointer; font-size: 17px; line-height: 1" style-hover="background: var(--roxo); border-color: var(--roxo)">✕</button>
+                    </div>
+                    <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.72); max-width: 62ch">{{ pessoaSel.bio }}</p>
+                    <div style="display: flex; flex-direction: column">
+                      <sc-for list="{{ pessoaSel.ficha }}" as="f" hint-placeholder-count="3">
+                        <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.16); font-size: 14.5px">
+                          <span style="color: rgba(255,255,255,.45)">{{ f.k }}</span>
+                          <span>{{ f.v }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div>
+                      <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 12px">Focus</span>
+                      <div style="display: flex; flex-direction: column">
+                        <sc-for list="{{ pessoaSel.frentes }}" as="fr" hint-placeholder-count="4">
+                          <span style="display: flex; align-items: baseline; gap: 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.16); font-size: 15px"><span style="width: 7px; height: 1px; background: var(--roxo); display: block; flex: none; transform: translateY(-5px)"></span>{{ fr.t }}</span>
+                        </sc-for>
+                      </div>
+                    </div>
+                    <div>
+                      <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 12px">Credentials</span>
+                      <div style="display: flex; flex-direction: column">
+                        <sc-for list="{{ pessoaSel.credenciais }}" as="c" hint-placeholder-count="3">
+                          <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.16); font-size: 14.5px">
+                            <span style="color: rgba(255,255,255,.45)">{{ c.k }}</span>
+                            <span>{{ c.v }}</span>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </div>
+                    <div>
+                      <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="solid" arrow="{{ yes }}" onClick="{{ abrirWhatsApp }}" hint-size="220px,44px">Talk to the lawyer on WhatsApp</x-import>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+          </section>
+
+          <section style="padding: 104px 0; background: var(--paper); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <div data-reveal="1" style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 28px 56px; align-items: start; margin-bottom: 56px">
+                <div>
+                  <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3)">Insights</span>
+                  <h2 style="font-family: var(--display); font-size: var(--fs-h2); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; margin-top: 18px">Articles for the people<br><span style="color: var(--ink-3)">who sign the investment.</span></h2>
+                  <div style="margin-top: 30px">
+                    <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="solid" arrow="{{ yes }}" onClick="{{ goAnalises }}" hint-size="200px,44px">Read the insights</x-import>
+                  </div>
+                </div>
+                <p style="margin: 0; font-size: var(--fs-note); color: var(--ink-3); max-width: var(--measure-note)">Statutes, decrees and case law applied to how developments actually run.</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 72px">
+                <sc-for list="{{ insightDestaque }}" as="i" hint-placeholder-count="1">
+                  <a data-reveal="1" href="#" onClick="{{ i.onClick }}" style="display: flex; flex-direction: column; gap: 16px; --vr-zoom: 1; --vr-tint: var(--filter-photo); --vr-meta: 1" style-hover="--vr-zoom: var(--img-zoom); --vr-tint: var(--filter-photo-hover); --vr-meta: 0">
+                    <div style="position: relative; aspect-ratio: 21/9; overflow: hidden">
+                      <image-slot shape="rect" id="{{ i.slotId }}" src="{{ i.img }}" placeholder="{{ i.slotHint }}" style="width: 100%; height: 100%; filter: var(--vr-tint); transform: scale(var(--vr-zoom)); transition: transform var(--dur-img) var(--ease), filter var(--dur-img) var(--ease)"></image-slot>
+                    </div>
+                    <span style="font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); opacity: var(--vr-meta); transition: opacity 420ms var(--ease)">{{ i.topic }}</span>
+                    <h3 style="font-family: var(--display); font-size: 38px; letter-spacing: -.026em; line-height: 1.08; font-weight: 700; max-width: 26ch">{{ i.title }}</h3>
+                    <time style="font-size: 13px; color: var(--ink-3); font-weight: 600; opacity: var(--vr-meta); transition: opacity 420ms var(--ease)">{{ i.date }}</time>
+                  </a>
+                </sc-for>
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px">
+                  <sc-for list="{{ insightsSec }}" as="i" hint-placeholder-count="2">
+                    <a data-reveal="1" href="#" onClick="{{ i.onClick }}" style="display: flex; flex-direction: column; gap: 16px; --vr-zoom: 1; --vr-tint: var(--filter-photo); --vr-meta: 1" style-hover="--vr-zoom: var(--img-zoom); --vr-tint: var(--filter-photo-hover); --vr-meta: 0">
+                    <div style="position: relative; aspect-ratio: 16/11; overflow: hidden">
+                      <image-slot shape="rect" id="{{ i.slotId }}" src="{{ i.img }}" placeholder="{{ i.slotHint }}" style="width: 100%; height: 100%; filter: var(--vr-tint); transform: scale(var(--vr-zoom)); transition: transform var(--dur-img) var(--ease), filter var(--dur-img) var(--ease)"></image-slot>
+                    </div>
+                    <span style="font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); opacity: var(--vr-meta); transition: opacity 420ms var(--ease)">{{ i.topic }}</span>
+                    <h3 style="font-family: var(--display); font-size: 28px; letter-spacing: -.028em; line-height: 1.08; font-weight: 700; max-width: 24ch">{{ i.title }}</h3>
+                    <time style="font-size: 13px; color: var(--ink-3); font-weight: 600; opacity: var(--vr-meta); transition: opacity 420ms var(--ease)">{{ i.date }}</time>
+                  </a>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section style="background: var(--roxo)">
+            <div style="max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 104px 40px; display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 56px; align-items: center">
+              <div style="display: flex; flex-direction: column; gap: 26px; align-items: flex-start">
+                <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink)">First step</span>
+                <h2 style="font-family: var(--display); color: var(--ink); font-size: var(--fs-h2); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">Bring the matrícula — the property’s title record. We handle the rest.</h2>
+                <p style="margin: 0; font-size: var(--fs-note); color: var(--ink); max-width: 42ch">The first conversation is technical and happens directly with the lawyer in charge. We assess whether the matter is actually viable before proposing any engagement.</p>
+                <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="solid" arrow="{{ yes }}" onClick="{{ goContato }}" hint-size="220px,44px">Talk to the lawyer</x-import>
+              </div>
+              <div style="position: relative; aspect-ratio: 3/2">
+                <image-slot id="convite-bg" shape="rect" src="assets/convite-cabo-branco.png" placeholder="Illustration — Cabo Branco Station" style="width: 100%; height: 100%"></image-slot>
+              </div>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isConsultoria }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <section style="position: relative; background: var(--ink); color: #fff; padding: 200px 0 88px; overflow: hidden; isolation: isolate">
+            <div style="position: absolute; inset: 0; z-index: 0">
+              <image-slot shape="rect" id="cons-capa" src="uploads/pexels-malcolnphoto-34398495.jpg" placeholder="Advisory cover image" style="width: 100%; height: 100%; filter: var(--filter-hero)"></image-slot>
+            </div>
+            <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">Urban planning advisory</span>
+              <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 20ch">The law of the land, read before the drawings.</h1>
+            </div>
+          </section>
+          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px">
+              <div style="display: flex; flex-direction: column; gap: 20px">
+                <sc-for list="{{ consultoriaOque }}" as="p" hint-placeholder-count="4">
+                  <p data-reveal="1" style="margin: 0; font-size: var(--fs-body); line-height: 1.6; max-width: var(--measure-prose)">{{ p.text }}</p>
+                </sc-for>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 26px">
+                <sc-for list="{{ consultoriaMetodo }}" as="m" hint-placeholder-count="4">
+                  <div data-reveal="1" style="border-top: 1px solid var(--ink); padding-top: 18px">
+                    <span style="display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--ink-3); margin-bottom: 10px">{{ m.n }}</span>
+                    <h3 style="font-family: var(--display); font-size: 21px; letter-spacing: -.02em; line-height: 1.18; font-weight: 700; margin-bottom: 10px">{{ m.t }}</h3>
+                    <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-3)">{{ m.d }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </section>
+          <section style="padding: 104px 0; background: var(--ink); color: #fff">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <h2 data-reveal="1" style="font-family: var(--display); font-size: var(--fs-decl); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; max-width: 26ch; margin-bottom: 56px">Good architecture built on a wrong legal premise never becomes a building.</h2>
+              <div style="display: flex; flex-direction: column">
+                <sc-for list="{{ consultoriaCamadas }}" as="c" hint-placeholder-count="3">
+                  <div style="border-top: 1px solid rgba(255,255,255,.16)">
+                    <button type="button" onClick="{{ c.onClick }}" onMouseEnter="{{ c.onEnter }}" onMouseLeave="{{ c.onLeaveC }}" style="width: 100%; background: transparent; border: 0; cursor: pointer; color: #fff; display: grid; grid-template-columns: 64px minmax(0, 1fr) 40px; gap: 24px; align-items: baseline; text-align: left; padding: 26px 0; font-family: var(--display)" style-hover="color: rgba(255,255,255,.62)">
+                      <span style="font-size: 12px; font-weight: 700; letter-spacing: .14em; color: rgba(255,255,255,.42)">{{ c.num }}</span>
+                      <span style="font-size: 28px; font-weight: 700; letter-spacing: -.026em; line-height: 1.1">{{ c.titulo }}</span>
+                      <span style="font-size: 26px; font-weight: 400; text-align: right; line-height: 1">{{ c.sign }}</span>
+                    </button>
+                    <sc-if value="{{ c.open }}" hint-placeholder-val="{{ false }}">
+                      <div style="display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, .78fr); gap: 24px 48px; padding: 0 0 48px; animation: vr-open 620ms var(--ease) both">
+                        <span></span>
+                        <div>
+                          <p style="margin: 0 0 18px; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.66); max-width: 46ch">{{ c.texto }}</p>
+                          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+                            <sc-for list="{{ c.itens }}" as="it" hint-placeholder-count="4">
+                              <li style="display: flex; gap: 12px; font-size: 13.5px; line-height: 1.45; color: rgba(255,255,255,.55)">
+                                <span style="flex: 0 0 auto; width: 7px; height: 1px; background: rgba(255,255,255,.55); margin-top: 9px"></span>
+                                <span>{{ it.text }}</span>
+                              </li>
+                            </sc-for>
+                          </ul>
+                        </div>
+                        <div style="position: relative; aspect-ratio: 4/3">
+                          <image-slot shape="rect" id="{{ c.slotId }}" src="{{ c.img }}" placeholder="{{ c.slotHint }}" style="width: 100%; height: 100%; filter: var(--filter-photo)"></image-slot>
+                        </div>
+                      </div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+                <div style="border-top: 1px solid rgba(255,255,255,.16)"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isEsp }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <section style="position: relative; background: var(--ink); color: #fff; padding: 200px 0 88px; overflow: hidden; isolation: isolate">
+            <div style="position: absolute; inset: 0; z-index: 0">
+              <image-slot shape="rect" id="esp-capa" src="uploads/pexels-fabianoshow4-564869275-28410706.jpg" placeholder="Practice areas cover image" style="width: 100%; height: 100%; filter: var(--filter-hero)"></image-slot>
+            </div>
+            <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">Practice areas</span>
+              <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 24ch">From buildable density<br>to the occupancy permit.</h1>
+              <p style="margin: 28px 0 0; max-width: 60ch; font-size: var(--fs-lede); line-height: 1.6; color: rgba(255,255,255,.66)">In fast-growing cities, urban planning law stopped being a bureaucratic detail and became the backbone of any real estate strategy. Knowing the rules of the urban game is what protects the investment and unlocks a site’s full potential.</p>
+            </div>
+          </section>
+          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 64px; align-items: start">
+              <div>
+                <sc-for list="{{ espGroups }}" as="g" hint-placeholder-count="3">
+                  <div data-reveal="1" style="margin-bottom: 44px">
+                    <h4 style="font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px">{{ g.titulo }}</h4>
+                    <div style="display: flex; flex-direction: column">
+                      <sc-for list="{{ g.items }}" as="e" hint-placeholder-count="4">
+                        <a href="#" onClick="{{ e.onClick }}" onMouseEnter="{{ e.onHover }}" onFocus="{{ e.onHover }}" style="display: grid; grid-template-columns: 3px minmax(0, 1fr) 22px; gap: 16px; align-items: baseline; border-top: 1px solid {{ e.linha }}; padding: 18px 0; color: {{ e.cor }}; transition: color .2s var(--ease), padding-left .2s var(--ease)" style-hover="padding-left: 8px">
+                          <span style="align-self: stretch; background: {{ e.marca }}"></span>
+                          <span style="font-family: var(--display); font-size: 19px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2">{{ e.nome }}</span>
+                          <span style="font-size: 15px; text-align: right; color: {{ e.cor }}">↗</span>
+                        </a>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+              <aside style="position: sticky; top: 40px; background: var(--ink); color: #fff">
+                <div style="position: relative; aspect-ratio: 16/10">
+                  <image-slot shape="rect" id="{{ hov.slotId }}" src="{{ hov.img }}" placeholder="Drop an image for this practice area" style="width: 100%; height: 100%; filter: var(--filter-photo)"></image-slot>
+                </div>
+                <div style="padding: 32px 30px 34px; display: flex; flex-direction: column; gap: 18px; align-items: flex-start">
+                  <span style="font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.5)">{{ hov.camada }}</span>
+                  <h3 style="font-family: var(--display); font-size: 26px; font-weight: 700; letter-spacing: -.026em; line-height: 1.1">{{ hov.nome }}</h3>
+                  <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: rgba(255,255,255,.66)">{{ hov.curto }}</p>
+                  <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: rgba(255,255,255,.5)">{{ hov.lei }}</p>
+                  <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+                    <sc-for list="{{ hov.escopo }}" as="s" hint-placeholder-count="3">
+                      <li style="display: flex; gap: 12px; font-size: 13.5px; line-height: 1.45; color: rgba(255,255,255,.55)">
+                        <span style="flex: 0 0 auto; width: 7px; height: 1px; background: rgba(255,255,255,.55); margin-top: 9px"></span>
+                        <span>{{ s.text }}</span>
+                      </li>
+                    </sc-for>
+                  </ul>
+                  <span style="font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,.42)">{{ hov.base }}</span>
+                  <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="white" arrow="{{ yes }}" onClick="{{ hov.onClick }}" hint-size="180px,44px">Open the page</x-import>
+                </div>
+              </aside>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isEspDetail }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <section style="background: var(--ink); color: #fff; padding: 200px 0 88px">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <a href="#" onClick="{{ goEspecialidades }}" style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">← Practice areas</a>
+              <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">{{ esp.h1 }}</h1>
+              <p style="margin: 28px 0 0; max-width: 52ch; font-size: var(--fs-lede); line-height: 1.6; color: rgba(255,255,255,.66)">{{ esp.curto }}</p>
+            </div>
+          </section>
+          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 56px; align-items: start">
+              <div data-reveal="1">
+                <p style="margin: 0 0 40px; font-size: var(--fs-body); line-height: 1.65; max-width: var(--measure-prose)">{{ esp.lei }}</p>
+                <h3 style="font-family: var(--display); font-size: 21px; letter-spacing: -.02em; font-weight: 700; margin-bottom: 18px">What we do</h3>
+                <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+                  <sc-for list="{{ esp.escopo }}" as="s" hint-placeholder-count="5">
+                    <li style="display: flex; gap: 14px; font-size: 15px; line-height: 1.5; color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 12px">
+                      <span style="flex: 0 0 auto; width: 7px; height: 1px; background: var(--ink); margin-top: 10px"></span>
+                      <span>{{ s.text }}</span>
+                    </li>
+                  </sc-for>
+                </ul>
+                <blockquote style="border-left: 4px solid var(--ink); padding: 6px 0 6px 26px; margin: 44px 0 0; max-width: 56ch">
+                  <p style="font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1.12; letter-spacing: -.03em; margin: 0">{{ esp.destaque }}</p>
+                </blockquote>
+              </div>
+              <div data-reveal="1" style="display: flex; flex-direction: column; gap: 26px">
+                <div style="border-top: 1px solid var(--ink); padding-top: 16px">
+                  <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px">Legal basis</span>
+                  <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-3)">{{ esp.base }}</p>
+                </div>
+                <div style="border-top: 1px solid var(--ink); padding-top: 16px">
+                  <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px">Related</span>
+                  <div style="display: flex; flex-direction: column; gap: 10px">
+                    <sc-for list="{{ esp.relacionados }}" as="r" hint-placeholder-count="2">
+                      <a href="#" onClick="{{ r.onClick }}" style="font-family: var(--display); font-size: 17px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2">{{ r.nome }}</a>
+                    </sc-for>
+                  </div>
+                </div>
+                <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="solid" arrow="{{ yes }}" onClick="{{ goContato }}" hint-size="220px,44px">Talk to the lawyer</x-import>
+              </div>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAnalises }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <section style="position: relative; background: var(--ink); color: #fff; padding: 200px 0 88px; overflow: hidden; isolation: isolate">
+            <div style="position: absolute; inset: 0; z-index: 0">
+              <image-slot shape="rect" id="an-capa" src="uploads/pexels-willian-santos-44398111-16899766.jpg" placeholder="Insights cover image" style="width: 100%; height: 100%; filter: var(--filter-hero)"></image-slot>
+            </div>
+            <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">Insights &amp; articles</span>
+              <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">Insights &amp; articles.</h1>
+              <p style="margin: 28px 0 0; max-width: 56ch; font-size: var(--fs-lede); line-height: 1.6; color: rgba(255,255,255,.66)">Technical articles and strategic notes for funds, developers and owners facing high-impact decisions.</p>
+            </div>
+          </section>
+          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <h2 data-reveal="1" style="font-family: var(--display); font-size: 30px; line-height: 1.06; letter-spacing: -.03em; font-weight: 700; margin-bottom: 40px">Featured articles</h2>
+              <div style="display: grid; gap: 40px; grid-template-columns: repeat(3, minmax(0, 1fr))">
+                <sc-for list="{{ insights }}" as="i" hint-placeholder-count="3">
+                  <a data-reveal="1" href="#" onClick="{{ i.onClick }}" style="display: flex; flex-direction: column; gap: 16px; --vr-zoom: 1; --vr-tint: var(--filter-photo); --vr-meta: 1" style-hover="--vr-zoom: var(--img-zoom); --vr-tint: var(--filter-photo-hover); --vr-meta: 0">
+                    <div style="position: relative; aspect-ratio: 1/1; overflow: hidden">
+                      <image-slot shape="rect" id="{{ i.slotIdB }}" src="{{ i.img }}" placeholder="{{ i.slotHint }}" style="width: 100%; height: 100%; filter: var(--vr-tint); transform: scale(var(--vr-zoom)); transition: transform var(--dur-img) var(--ease), filter var(--dur-img) var(--ease)"></image-slot>
+                    </div>
+                    <span style="font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); opacity: var(--vr-meta); transition: opacity 420ms var(--ease)">{{ i.topic }}</span>
+                    <h3 style="font-family: var(--display); font-size: 24px; letter-spacing: -.026em; line-height: 1.1; font-weight: 700">{{ i.title }}</h3>
+                    <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-3); opacity: var(--vr-meta); transition: opacity 420ms var(--ease)">{{ i.excerpt }}</p>
+                    <time style="font-size: 13px; color: var(--ink-3); font-weight: 600; opacity: var(--vr-meta); transition: opacity 420ms var(--ease)">{{ i.date }}</time>
+                  </a>
+                </sc-for>
+              </div>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isArtigo }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <section style="position: relative; min-height: 640px; display: flex; align-items: flex-end; background: var(--ink); overflow: hidden; isolation: isolate">
+            <div style="position: absolute; inset: 0; z-index: 0">
+              <image-slot shape="rect" id="artigo-capa" src="{{ artigo.img }}" placeholder="Cover photo" style="width: 100%; height: 100%; filter: var(--filter-hero)"></image-slot>
+            </div>
+            <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 200px 40px 80px">
+              <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px">
+                <a href="#" onClick="{{ goAnalises }}" style="font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6)">← Insights</a>
+                <span style="font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6)">{{ artigo.categoria }}</span>
+                <span style="font-size: 13px; color: rgba(255,255,255,.5); font-weight: 600">{{ artigo.data }}</span>
+              </div>
+              <h1 style="font-family: var(--display); color: #fff; font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 26ch">{{ artigo.titulo }}</h1>
+              <p style="margin: 26px 0 0; max-width: 56ch; font-size: var(--fs-lede); line-height: 1.6; color: rgba(255,255,255,.66)">{{ artigo.resumo }}</p>
+            </div>
+          </section>
+
+          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 64px; align-items: start">
+              <div>
+                <div data-reveal="1" style="display: flex; flex-direction: column; gap: 18px; margin-bottom: 56px">
+                  <sc-for list="{{ artigo.abertura }}" as="p" hint-placeholder-count="3">
+                    <p style="margin: 0; font-size: var(--fs-body); line-height: 1.65; max-width: var(--measure-prose)">{{ p.text }}</p>
+                  </sc-for>
+                </div>
+
+                <sc-for list="{{ artigo.secoes }}" as="s" hint-placeholder-count="5">
+                  <div data-reveal="1" id="artigo-sec-{{ s.num }}" style="border-top: 1px solid var(--ink); padding-top: 22px; margin-bottom: 64px; scroll-margin-top: 90px">
+                    <span style="display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--ink-3); margin-bottom: 14px">{{ s.num }}</span>
+                    <h2 style="font-family: var(--display); font-size: 32px; line-height: 1.06; letter-spacing: -.03em; font-weight: 700; max-width: 24ch">{{ s.titulo }}</h2>
+                    <p style="margin: 16px 0 26px; font-size: 15px; font-weight: 500; color: var(--ink-3); max-width: 46ch">{{ s.kicker }}</p>
+                    <div style="display: flex; flex-direction: column; gap: 18px">
+                      <sc-for list="{{ s.paras }}" as="p" hint-placeholder-count="3">
+                        <p style="margin: 0; font-size: var(--fs-body); line-height: 1.65; max-width: var(--measure-prose)">{{ p.text }}</p>
+                      </sc-for>
+                    </div>
+                    <sc-if value="{{ s.hasBullets }}" hint-placeholder-val="{{ false }}">
+                      <ul style="margin: 26px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+                        <sc-for list="{{ s.bullets }}" as="b" hint-placeholder-count="3">
+                          <li style="display: flex; gap: 14px; font-size: 15.5px; line-height: 1.55; color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 12px">
+                            <span style="flex: 0 0 auto; width: 7px; height: 1px; background: var(--ink); margin-top: 11px"></span>
+                            <span>{{ b.text }}</span>
+                          </li>
+                        </sc-for>
+                      </ul>
+                    </sc-if>
+                    <sc-if value="{{ s.hasTabela }}" hint-placeholder-val="{{ false }}">
+                      <table style="width: 100%; border-collapse: collapse; margin: 30px 0 0; font-size: 14.5px">
+                        <thead>
+                          <tr>
+                            <sc-for list="{{ s.tabela.head }}" as="h" hint-placeholder-count="3">
+                              <th style="text-align: left; padding: 0 16px 10px 0; border-bottom: 1px solid var(--ink); font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3)">{{ h.t }}</th>
+                            </sc-for>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <sc-for list="{{ s.tabela.rows }}" as="r" hint-placeholder-count="5">
+                            <tr>
+                              <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="3">
+                                <td style="padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; color: var(--ink)">{{ c.t }}</td>
+                              </sc-for>
+                            </tr>
+                          </sc-for>
+                        </tbody>
+                      </table>
+                    </sc-if>
+                    <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 22px">
+                      <sc-for list="{{ s.paras2 }}" as="p" hint-placeholder-count="0">
+                        <p style="margin: 0; font-size: var(--fs-body); line-height: 1.65; max-width: var(--measure-prose)">{{ p.text }}</p>
+                      </sc-for>
+                    </div>
+                    <sc-if value="{{ s.hasQuote }}" hint-placeholder-val="{{ false }}">
+                      <blockquote style="border-left: 4px solid var(--ink); padding: 6px 0 6px 26px; margin: 32px 0 0; max-width: 52ch">
+                        <p style="font-family: var(--display); font-weight: 700; font-size: 24px; line-height: 1.14; letter-spacing: -.03em; margin: 0">{{ s.quote }}</p>
+                      </blockquote>
+                    </sc-if>
+                  </div>
+                </sc-for>
+
+                <div data-reveal="1">
+                  <h2 style="font-family: var(--display); font-size: 26px; line-height: 1.1; letter-spacing: -.03em; font-weight: 700; margin-bottom: 18px">Frequently asked questions</h2>
+                  <sc-for list="{{ artigo.faq }}" as="f" hint-placeholder-count="4">
+                    <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.FaqItem" question="{{ f.q }}" default-open="{{ f.open }}" hint-size="100%,64px">{{ f.a }}</x-import>
+                  </sc-for>
+                </div>
+              </div>
+
+              <aside style="position: sticky; top: 40px; display: flex; flex-direction: column; gap: 30px">
+                <div style="border-top: 1px solid var(--ink); padding-top: 16px">
+                  <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px">In this article</span>
+                  <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+                    <sc-for list="{{ artigo.sumario }}" as="s" hint-placeholder-count="5">
+                      <li style="display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; font-size: 14.5px; line-height: 1.4; color: var(--ink-3)">
+                        <span style="font-weight: 700">{{ s.n }}</span>
+                        <a href="#" onClick="{{ s.onClick }}" style="color: var(--ink-3); text-decoration: none" style-hover="color: var(--ink)">{{ s.text }}</a>
+                      </li>
+                    </sc-for>
+                  </ol>
+                </div>
+                <div style="border-top: 1px solid var(--ink); padding-top: 16px">
+                  <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px">Read next</span>
+                  <div style="display: flex; flex-direction: column; gap: 12px">
+                    <sc-for list="{{ artigo.leia }}" as="l" hint-placeholder-count="4">
+                      <a href="#" onClick="{{ l.onClick }}" style="font-family: var(--display); font-size: 16px; font-weight: 700; letter-spacing: -.02em; line-height: 1.25">{{ l.label }}</a>
+                    </sc-for>
+                  </div>
+                </div>
+                <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="solid" arrow="{{ yes }}" onClick="{{ goContato }}" hint-size="220px,44px">Talk to the lawyer</x-import>
+                <p style="margin: 0; font-size: 13px; line-height: 1.55; color: var(--ink-3); max-width: 40ch">Informational content. It is not legal advice and not an offer of services. Application depends on the facts of each case.</p>
+              </aside>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isContato }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <section style="position: relative; background: var(--ink); color: #fff; padding: 200px 0 88px; overflow: hidden; isolation: isolate">
+            <div style="position: absolute; inset: 0; z-index: 0">
+              <image-slot shape="rect" id="contato-capa" src="uploads/pexels-fabio-akamine-1315530474-29279918.jpg" placeholder="Contact cover image" style="width: 100%; height: 100%; filter: var(--filter-hero); object-position: 44% 12%"></image-slot>
+            </div>
+            <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">Contact</span>
+              <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">Get in touch</h1>
+            </div>
+          </section>
+          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start">
+              <div data-reveal="1" style="display: flex; flex-direction: column; gap: 20px">
+                <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3)">Enquiry form</span>
+                <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Field" label="Name" tone="light" placeholder="Full name" hint-size="100%,70px"></x-import>
+                <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Field" label="Email" tone="light" type="email" placeholder="you@company.com" hint-size="100%,70px"></x-import>
+                <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Field" label="Property address or tax roll number" tone="light" placeholder="Street, number and city, or the IPTU / matrícula number" hint-size="100%,70px"></x-import>
+                <label style="display: block">
+                  <span style="display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 7px">What the matter is about</span>
+                  <textarea rows="5" placeholder="Briefly describe the project, the restriction or the goal" style="width: 100%; background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 11px 13px; font-size: 15px; font-family: inherit; border-radius: 0"></textarea>
+                </label>
+                <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="solid" arrow="{{ yes }}" hint-size="220px,44px">Send for review</x-import>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 26px">
+                <div style="border-top: 1px solid var(--ink); padding-top: 16px">
+                  <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px">Contact &amp; firm details</span>
+                  <p style="margin: 0 0 12px; font-size: 15px; line-height: 1.6; color: var(--ink)">The person you meet in the first call is the person who runs the case to the end.</p>
+                  <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink-3)">We work by video call and through electronic administrative filings, which lets us review an asset in any municipality.</p>
+                </div>
+                <div style="border-top: 1px solid var(--ink); padding-top: 16px; display: flex; flex-direction: column; gap: 8px; font-size: 15px">
+                  <a href="mailto:diego@vieira-rodrigues.com">diego@vieira-rodrigues.com</a>
+                  <span style="display: flex; align-items: center; gap: 10px">
+                    <a href="tel:+5583991715836">João Pessoa · +55 83 99171-5836</a>
+                    <a href="https://wa.me/5583991715836" target="_blank" rel="noopener" aria-label="Open WhatsApp chat" style="display: inline-flex; align-items: center; color: var(--roxo-deep)" style-hover="color: var(--ink)">
+                      <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 17px; height: 17px; fill: currentColor">
+                        <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"></path>
+                        <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4C8.7 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 14.7 4 13.4 4 12 4 7.6 7.6 4 12 4s8 3.6 8 8-3.6 8-8 8z"></path>
+                      </svg>
+                    </a>
+                  </span>
+                  <span style="display: flex; align-items: center; gap: 10px">
+                    <a href="tel:+5511949626324">São Paulo · +55 11 94962-6324</a>
+                    <a href="https://wa.me/5511949626324" target="_blank" rel="noopener" aria-label="Open WhatsApp chat" style="display: inline-flex; align-items: center; color: var(--roxo-deep)" style-hover="color: var(--ink)">
+                      <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 17px; height: 17px; fill: currentColor">
+                        <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"></path>
+                        <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4C8.7 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 14.7 4 13.4 4 12 4 7.6 7.6 4 12 4s8 3.6 8 8-3.6 8-8 8z"></path>
+                      </svg>
+                    </a>
+                  </span>
+                  <span style="color: var(--ink-3)">We work in Portuguese, English and Spanish</span>
+                  <span style="color: var(--ink-3)">Head office in João Pessoa · PB, Brazil</span>
+                  <div style="margin-top: 8px; border: 1px solid var(--line); aspect-ratio: 16/9; overflow: hidden">
+                    <iframe title="Map — João Pessoa, PB" src="https://www.openstreetmap.org/export/embed.html?bbox=-34.90%2C-7.16%2C-34.80%2C-7.08&amp;layer=mapnik&amp;marker=-7.1195%2C-34.845" style="width: 100%; height: 100%; border: 0; filter: grayscale(1) contrast(1.05)" loading="lazy"></iframe>
+                  </div>
+                </div>
+                <p style="margin: 0; font-size: 13px; color: var(--ink-3); max-width: 44ch">Informational content only. It is not legal advice and not a public offer of services.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isLegal }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <section style="background: var(--ink); color: #fff; padding: 200px 0 88px">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">Legal</span>
+              <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700">Terms of use</h1>
+            </div>
+          </section>
+          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+              <div style="max-width: var(--measure-prose); display: flex; flex-direction: column; gap: 34px">
+                <sc-for list="{{ legalSecoes }}" as="s" hint-placeholder-count="6">
+                  <div data-reveal="1">
+                    <h3 style="font-family: var(--display); font-size: 19px; letter-spacing: -.02em; font-weight: 700; margin-bottom: 10px">{{ s.t }}</h3>
+                    <p style="margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--ink-3)">{{ s.d }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+
+  <footer style="background: var(--ink); color: rgba(255,255,255,.6); padding: 88px 0 32px; font-size: 15px">
+    <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+      <div style="text-align: center; padding-bottom: 72px">
+        <span style="display: inline-flex; align-items: flex-end; font-family: var(--brand); font-weight: 800; font-size: clamp(46px, 9vw, 118px); line-height: .88; letter-spacing: -.045em; text-transform: uppercase; color: var(--paper-2)">
+          <span>
+            <span style="display: block">Vieira-</span>
+            <span style="display: block">Rodrigues</span>
+          </span>
+          <i style="width: 24px; height: 24px; background: var(--roxo); display: block; margin-left: 6px; margin-bottom: 5px; flex: 0 0 auto"></i>
+        </span>
+      </div>
+      <div style="display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 32px; padding: 46px 0 44px; border-top: 1px solid rgba(255,255,255,.16)">
+        <div>
+          <h4 style="color: rgba(255,255,255,.45); font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 18px">Get the insights</h4>
+          <p style="max-width: 38ch; font-size: 14.5px; margin: 0">One piece at a time, when there is something worth saying. No fixed schedule.</p>
+          <input value="{{ subEmail }}" onChange="{{ onSubEmail }}" placeholder="you@email.com" style="margin-top: 16px; width: 100%; max-width: 260px; background: var(--ink-surf-2); border: 1px solid rgba(255,255,255,.16); color: #fff; padding: 11px 13px; font-size: 14px; font-family: inherit; display: block; border-radius: 0">
+          <div style="margin-top: 12px">
+            <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="white" arrow="{{ yes }}" onClick="{{ onSubscribe }}" hint-size="180px,44px">Subscribe</x-import>
+          </div>
+        </div>
+        <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
+          <div>
+            <h4 style="color: rgba(255,255,255,.45); font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 18px">{{ col.titulo }}</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="4">
+                <a href="{{ l.href }}" onClick="{{ l.onClick }}" style="color: rgba(255,255,255,.8)">{{ l.label }}</a>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.16); padding-top: 28px; font-size: 12.5px; color: rgba(255,255,255,.4)">
+        <span>© 2026 Vieira-Rodrigues Advocacia — sole practitioner law firm · Diego Rodrigues Vieira, Brazilian Bar (OAB/PB) no. 36,529 · João Pessoa · PB, Brazil</span>
+        <span>Attorney advertising under Provimento 205/2021 of the Brazilian Bar Association</span>
+      </div>
+    </div>
+  </footer>
+
+  <sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; z-index: 90; background: rgba(20,19,16,.97); backdrop-filter: blur(12px); color: #fff; display: flex; flex-direction: column">
+      <div style="max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 40px; display: flex; justify-content: flex-end">
+        <button type="button" onClick="{{ closeSearch }}" aria-label="Close search" style="background: transparent; border: 1px solid rgba(255,255,255,.32); color: #fff; font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 9px 14px; cursor: pointer" style-hover="background: rgba(255,255,255,.12)">Close</button>
+      </div>
+      <div style="max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 0 40px 40px; flex: 1; overflow-y: auto">
+        <input value="{{ query }}" onChange="{{ onQuery }}" placeholder="Search the site" autofocus="{{ yes }}" style="width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.32); color: #fff; font-family: var(--display); font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -.03em; padding: 0 0 18px; outline: none">
+        <div style="margin-top: 40px; display: flex; flex-direction: column">
+          <sc-for list="{{ results }}" as="r" hint-placeholder-count="4">
+            <a href="#" onClick="{{ r.onClick }}" style="display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 24px; align-items: baseline; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.16); color: #fff" style-hover="color: rgba(255,255,255,.62)">
+              <span style="font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -.024em">{{ r.label }}</span>
+              <span style="font-size: 12px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.45); text-align: right">{{ r.sub }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <a href="#" onClick="{{ toTop }}" aria-label="Back to top" style="position: fixed; top: 14px; left: 50%; z-index: 65; transform: {{ markShift }}; opacity: {{ markOpacity }}; pointer-events: {{ markPointer }}; padding: 12px 20px; text-shadow: 0 2px 14px rgba(20,19,16,.55); transition: opacity .3s var(--ease), transform .3s var(--ease)">
+    <span style="display: inline-flex; align-items: flex-end; font-family: var(--brand); font-weight: 800; font-size: 22px; line-height: .88; letter-spacing: -.045em; text-transform: uppercase; color: var(--paper-2); white-space: nowrap">
+      <span>
+        <span style="display: block">Vieira-</span>
+        <span style="display: block">Rodrigues</span>
+      </span>
+      <i style="width: 7px; height: 7px; background: var(--roxo); display: block; margin-left: 3px; margin-bottom: 2px; flex: 0 0 auto"></i>
+    </span>
+  </a>
+
+  <a href="https://wa.me/5583991715836" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position: fixed; right: 20px; bottom: 20px; z-index: 70; width: 54px; height: 54px; background: var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 22px rgba(20,19,16,.28)" style-hover="background: var(--paper-2)">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 28px; height: 28px; fill: currentColor; color: #fff">
+      <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"></path>
+      <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4C8.7 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 14.7 4 13.4 4 12 4 7.6 7.6 4 12 4s8 3.6 8 8-3.6 8-8 8z"></path>
+    </svg>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}}">
+const ESP = [
+  { slug: 'viabilidade-urbanistica', camada: 'base',
+    nome: 'Zoning and legal feasibility study',
+    curto: 'A preventive reading of maximum buildable density, building parameters and regulatory risk before the money goes in.',
+    h1: 'Every rule that hits the property, in one report.',
+    base: 'Federal Constitution, art. 30, VIII · Law 10,257/2001, arts. 28-31 · municipal master plan',
+    lei: 'The answer to what a site allows is spread across at least four statutes from three levels of government. Each professional answers their own part; nobody puts it together.',
+    escopo: ['Assessment of the basic and maximum buildable area of the lot', 'Mapping how federal, state and municipal rules overlap on the site', 'Preliminary opinion on building and regulatory feasibility'],
+    destaque: 'The study costs a fraction of the design. And it is the only document that can tell you not to build.',
+    relacionados: ['incorporacao-loteamento-due-diligence', 'licenciamento-e-alvaras'] },
+  { slug: 'incorporacao-loteamento-due-diligence', camada: 'base',
+    nome: 'Development structuring, subdivision and real estate & tax due diligence',
+    curto: 'Chain of title review, clean-up of tax liabilities and the corporate structure of the development.',
+    h1: 'The liability that comes with the land.',
+    base: 'Law 4,591/1964 · Law 6,766/1979 · National Tax Code',
+    lei: 'Chain of title and tax liabilities follow the property after signing. Auditing them first is cheaper than arguing about them later.',
+    escopo: ['Audit of tax and real estate liabilities attached to the land', 'Drafting and recording of the condominium development filing and the subdivision plan', 'Contract modelling for land-for-units swaps and setting up an SPE or SCP vehicle'],
+    destaque: 'Due diligence does not make the acquisition more expensive. It prices what was already inside it.',
+    relacionados: ['viabilidade-urbanistica', 'tributacao-da-operacao-imobiliaria'] },
+  { slug: 'incentivos-do-centro-historico', camada: 'mecanismo',
+    nome: 'Listed buildings and cultural heritage: tax incentives and exemptions',
+    curto: 'Turning heritage restrictions into tax efficiency and a lower carrying cost for the asset.',
+    h1: 'A heritage listing, converted into a tax regime.',
+    base: 'Federal Constitution, arts. 24, VII, 156 and 216 · Decree-Law 25/1937 · municipal cultural incentive statutes',
+    lei: 'A heritage listing limits what you can build and, in most statutes, opens an exemption and incentive regime in exchange. Owners who read only the limitation pay the full bill.',
+    escopo: ['Claims for tax exemption and relief — IPTU property tax, ITBI transfer tax and ISS on restoration and maintenance services', 'Administrative defence against heritage-agency enforcement — IPHAN, state and municipal bodies', 'Structuring projects funded through urban cultural incentive programmes'],
+    destaque: 'The exemption requires the building to be genuinely in use. A shuttered asset held in a portfolio does not sustain the benefit.',
+    relacionados: ['transferencia-do-direito-de-construir', 'outorga-onerosa-paga-em-obras'] },
+  { slug: 'transferencia-do-direito-de-construir', camada: 'mecanismo',
+    nome: 'Transfer of development rights (TDC / TPC)',
+    curto: 'Monetising properties under building restrictions — heritage or environmental — and buying density for new projects.',
+    h1: 'The density your property cannot use is worth money on another site.',
+    base: 'Law 10,257/2001 (City Statute), art. 35 · municipal TDC/TPC rules',
+    lei: 'The instrument moves buildable density from a restricted property to another site. What changes from city to city is the procedure, not the logic.',
+    escopo: ['Issuance of sending-site development-rights certificates for listed or protected properties', 'Legal support in the private purchase, sale and negotiation of TPC and TDC credits', 'Filing with municipal planning agencies to bind the density to the receiving site'],
+    destaque: 'A density certificate has an expiry date. Issuing it too early, with no buyer in sight, burns the clock.',
+    relacionados: ['bonus-construtivo-areas-verdes', 'incentivos-do-centro-historico'] },
+  { slug: 'bonus-construtivo-areas-verdes', camada: 'mecanismo',
+    nome: 'Density bonus for preserving green area (RPPN / RPPNM)',
+    curto: 'Extra floor-area ratio in exchange for ecological preservation inside the urban perimeter.',
+    h1: 'Preserve more to build more.',
+    base: 'Federal Constitution, art. 225 · Law 9,985/2000 (protected areas) · Law 12,651/2012 · municipal zoning and green-area statutes',
+    lei: 'Land you cannot occupy stops being a loss when the statute treats preservation as consideration and gives the density back on the remaining area.',
+    escopo: ['Creation and recording of a private natural heritage reserve (RPPN or municipal RPPNM)', 'Claim for a floor-area bonus in exchange for environmental preservation', 'Legal validation of how the protected vegetation is integrated into the architectural design'],
+    destaque: 'The bonus is a permanent obligation. Failing the preservation duty usually costs several times the benefit received.',
+    relacionados: ['transferencia-do-direito-de-construir', 'viabilidade-urbanistica'] },
+  { slug: 'outorga-onerosa-paga-em-obras', camada: 'mecanismo',
+    nome: 'Paid building rights — outorga onerosa',
+    curto: 'Using density above the basic ratio, with review and challenge of how the payment was calculated.',
+    h1: 'The payment owed to the city, audited.',
+    base: 'Law 10,257/2001, arts. 28-31 · municipal master plan and paid-density statutes',
+    lei: 'Building above the basic floor-area ratio depends on a payment to the city. The formula is linear on the additional area and on land value — and it is often run on the wrong basis.',
+    escopo: ['Calculation and legal audit of the city’s paid-density charge', 'Administrative and court challenges to excessive amounts or to an improper calculation basis', 'Negotiating payment in kind — works or land — instead of cash'],
+    destaque: 'This charge is not a tax. That changes who can dispute it, how, and within what deadline.',
+    relacionados: ['areas-especiais-ter-e-ouc', 'tributacao-da-operacao-imobiliaria'] },
+  { slug: 'areas-especiais-ter-e-ouc', camada: 'mecanismo',
+    nome: 'Urban redevelopment districts and CEPAC certificates',
+    curto: 'Working inside transformation districts that run on their own rulebook and trade density as securities.',
+    h1: 'Where the parameters are made to measure.',
+    base: 'Law 10,257/2001, arts. 32-34 · the specific statute of each district',
+    lei: 'Inside a redevelopment district the parameters do not come ready from the zoning table: they are set in a dedicated statute, with additional density issued as tradable certificates.',
+    escopo: ['Acquisition, management and binding of CEPAC additional-density certificates', 'Aligning the development with the district’s guidelines and incentives', 'Legal defence when the district’s rules change mid-project'],
+    destaque: 'A CEPAC is a security, not a permit. Holding stock skips no step of the licensing path.',
+    relacionados: ['outorga-onerosa-paga-em-obras', 'licenciamento-e-alvaras'] },
+  { slug: 'licenciamento-e-alvaras', camada: 'mecanismo',
+    nome: 'Permitting, building licences and design approval',
+    curto: 'Running the building permit and design approval through city hall, step by step.',
+    h1: 'From filing to permit.',
+    base: 'Federal Constitution, art. 30, VIII · municipal building code',
+    lei: 'The sequence is filing, guidelines, design approval, permit. No step is skipped, and every requirement answered poorly sends the file back one stage.',
+    escopo: ['Administrative handling of design approval and building licence proceedings', 'Neighbourhood impact studies (EIV) and negotiation of commitment agreements', 'Clearing pending items with utilities and regulatory agencies'],
+    destaque: 'The bottleneck rarely starts at the filing desk. It starts in design decisions taken months earlier, without reading the rule.',
+    relacionados: ['viabilidade-urbanistica', 'regularizacao-de-obra-e-imovel'] },
+  { slug: 'regularizacao-de-obra-e-imovel', camada: 'apoio',
+    nome: 'Legalising built work: amnesty, occupancy permit and REURB',
+    curto: 'Bringing existing buildings into legal and documentary order, including accessibility and operating licences.',
+    h1: 'The building exists. What is missing is the document that says so.',
+    base: 'Federal Constitution, art. 182, §8 · Law 13,465/2017 (REURB) · LC 182/2026 · municipal building code',
+    lei: 'A finished building without an occupancy permit cannot be financed, recorded or sold. The route to legalise it depends on the type of irregularity, and some routes have a closing date.',
+    escopo: ['Technical and legal diagnosis of the irregularity and choice of route — ordinary or amnesty', 'Preparing and running amnesty proceedings inside the statutory window', 'Obtaining the occupancy permit and handling urban land regularisation (REURB)'],
+    destaque: 'An amnesty window is a deadline, not a regime. Arrive late and you are back on the ordinary route.',
+    relacionados: ['licenciamento-e-alvaras', 'tributacao-da-operacao-imobiliaria'] },
+  { slug: 'tributacao-da-operacao-imobiliaria', camada: 'apoio',
+    nome: 'Tax engineering of the real estate deal',
+    curto: 'Tax treatment of the transfer, of profit recognition and of closing out the construction.',
+    h1: 'Every transaction in the deal has its own tax treatment.',
+    base: 'Federal Constitution, art. 156, I and II · National Tax Code · LC 116/2003 (services tax)',
+    lei: 'An urban development is a sequence of separate transactions. Treating them as one block is the most expensive mistake in the sector.',
+    escopo: ['ITBI transfer-tax planning — non-incidence on capital contributions and on spin-offs and mergers', 'Tax position for excluding construction costs from the ISS services-tax base', 'Managing capital gains on the sale of property and of development-rights credits'],
+    destaque: 'The tax step is the one almost nobody takes before signing. It is also the one that moves the result the most.',
+    relacionados: ['incorporacao-loteamento-due-diligence', 'outorga-onerosa-paga-em-obras'] },
+];
+const ACC_SLUGS = ['transferencia-do-direito-de-construir', 'bonus-construtivo-areas-verdes', 'incentivos-do-centro-historico', 'licenciamento-e-alvaras', 'viabilidade-urbanistica'];
+const ACC_HINTS = {
+  'transferencia-do-direito-de-construir': 'Listed townhouse downtown',
+  'bonus-construtivo-areas-verdes': 'Wooded lot on a slope',
+  'licenciamento-e-alvaras': 'Facade under construction',
+  'regularizacao-de-obra-e-imovel': 'Existing building',
+  'incorporacao-loteamento-due-diligence': 'Land to be subdivided',
+  'outorga-onerosa-paga-em-obras': 'Tower under construction',
+  'areas-especiais-ter-e-ouc': 'District under transformation',
+  'tributacao-da-operacao-imobiliaria': 'Documents and drawings',
+  'incentivos-do-centro-historico': 'Facade in the historic centre',
+  'viabilidade-urbanistica': 'Vacant lot in a density zone',
+};
+const ACC_IMGS = {
+  'transferencia-do-direito-de-construir': 'uploads/AdobeStock_250551255-ESPECIALIDADE.jpeg',
+  'bonus-construtivo-areas-verdes': 'uploads/AdobeStock_363312828-ESPECIALIDADE.jpeg',
+  'licenciamento-e-alvaras': 'uploads/AdobeStock_316395919-ESPECIALDIADE.jpeg',
+  'regularizacao-de-obra-e-imovel': 'uploads/AdobeStock_316395958-ARTIGOS.jpeg',
+  'incorporacao-loteamento-due-diligence': 'uploads/AdobeStock_363312828-ESPECIALIDADE.jpeg',
+  'outorga-onerosa-paga-em-obras': 'uploads/AdobeStock_580854681-HOME.jpeg',
+  'areas-especiais-ter-e-ouc': 'uploads/AdobeStock_600277667-JOAOPESSOAMAPANORMATIVO.jpeg',
+  'tributacao-da-operacao-imobiliaria': 'uploads/AdobeStock_250551255-ESPECIALIDADE.jpeg',
+  'incentivos-do-centro-historico': 'uploads/AdobeStock_581810240-HOME.jpeg',
+  'viabilidade-urbanistica': 'uploads/AdobeStock_340474835.jpeg',
+};
+
+const ARTIGOS = [
+  {
+    slug: 'transferencia-do-direito-de-construir-joao-pessoa-decreto-11266-2026',
+    categoria: 'Urban planning', data: '06.29.2026',
+    titulo: 'Transfer of development rights starts working in João Pessoa',
+    resumo: 'Decree 11,266/2026 finally makes the transfer of development rights operational in the capital of Paraíba. The procedures, the conversion formula for sending-site density, and what it does to the price of tradable floor area.',
+    img: 'uploads/AdobeStock_316395958-ARTIGOS.jpeg',
+    abertura: [
+      'The João Pessoa property market lived through a long regulatory gap after Law 15,409/2024, which formally created the transfer of development rights in the municipality.',
+      'With no regulation setting out the administrative steps, the equivalence formula and the certificate issuance flow, the market for buildable density sat still for more than a year and a half.',
+      'Decree 11,266/2026 changes that. It makes operational an instrument already written into the master plan (LC 164/2024) and the land use law (LC 166/2024), connecting heritage and environmental preservation to density in the receiving zones.',
+    ],
+    sumario: ['How the transfer works, from issuance to binding', 'Equivalence formula and conversion factors', 'Economic effects and the historic centre', 'What to structure before filing'],
+    secoes: [
+      { num: '01', titulo: 'How the transfer works: from issuance to binding on the receiving site', kicker: 'Three clearly separated phases.',
+        paras: ['The regulation sets out the formal path that turns the right to build into an intangible instrument, tradable in the private market.'],
+        bullets: ['Issuance of the sending-site density certificate: the owner of a property in a preservation area — the historic centre or an environmental protection zone — asks the city to value the density that cannot be used', 'Negotiation and assignment: holding the certificate, the owner of the preserved property sells the buildable-square-metre credit to third parties on the open market', 'Binding and use on the receiving site: the buyer presents the certificate during permitting of the new project, replacing the cash payment otherwise owed to build above the basic floor-area ratio of 1.0'],
+        quote: 'What was missing was not the right. It was the procedure.' },
+      { num: '02', titulo: 'Equivalence formula and conversion factors', kicker: 'The transfer is not one square metre for one square metre.',
+        paras: ['The decree consolidated the equivalence formula: the transfer is adjusted by the assessed land value per square metre in the sending zone against the receiving zone. That prevents density distortions and keeps the system financially sound.'],
+        bullets: ['The basic floor-area ratio of the sending zone', 'The assessed value of the sending site, as recorded in the municipal land value table', 'The assessed value of the receiving site, where the density will be used'],
+        paras2: ['The adjustment keeps buying transferred density competitive against the traditional cash payment for extra density, giving developers a direct incentive to buy credits from owners in the historic centre and in protected green areas.'] },
+      { num: '03', titulo: 'Economic effects for the market and for the historic centre', kicker: 'A liability becomes a balance-sheet line.',
+        paras: ['Properties held back by height limits and heritage listings reposition themselves: what used to be a liability in the historic centre and inside listed perimeters now sits in the owner’s assets as something tradable.', 'For builders focused on priority density zones, transferred density becomes an alternative to paying the city in cash, with more flexible private negotiation and a lower cost of carrying buildable stock.'],
+        quote: 'The restriction stops being the end of the conversation and becomes the origin of the asset.' },
+      { num: '04', titulo: 'What to structure before filing', kicker: 'A poorly documented certificate fails at permitting.',
+        bullets: ['A complete filing for the certificate, with title documents and the valuation of the density', 'Legal review of the assignment agreement, with subject matter, price and liabilities kept separate from any sale of the property itself', 'Recording on the title and control of the certificate’s validity period, so the credit does not expire before it is used'],
+        paras2: ['The most common mistake is issuing the certificate too early, with no buyer in sight: the clock runs and the credit loses useful value.'] },
+    ],
+    fecho: 'Legal restriction → idle density → technical valuation → certificate → recording on title → assignment → maximum ratio reached on the receiving site. The regulation finally works; it is now up to the market to structure deals under the city’s new rules.',
+    faq: [
+      { q: 'Who can sell buildable density in João Pessoa?', a: 'Owners whose property cannot use its full density because of zoning rules — listed buildings or properties inside the historic centre preservation area, sites of environmental interest and properties assigned to social use, under Law 15,409/2024 and Decree 11,266/2026.' },
+      { q: 'Does buying transferred density allow building above the zone height limit?', a: 'No. Transferred density lets you reach the maximum floor-area ratio of the macro-zone. Height, setbacks and site coverage continue to apply in full.' },
+      { q: 'Does the transfer have to be recorded at the registry?', a: 'It is recorded on the property title. That is what prevents the same density from being sold twice and what gives the buyer certainty.' },
+      { q: 'Is transfer tax due when buying buildable density?', a: 'Article 19, §3 of Decree 11,266/2026 states that the tax does not apply to the sale of buildable density. How that provision reads, and its effects, depend on how each deal is structured.' },
+    ],
+    leia: [
+      { label: 'Transfer of development rights', page: 'esp', slug: 'transferencia-do-direito-de-construir' },
+      { label: 'Historic centre incentives', page: 'esp', slug: 'incentivos-do-centro-historico' },
+      { label: 'Transfer tax does not apply to the sale of buildable density', page: 'artigo', slug: 'itbi-potencial-construtivo-joao-pessoa-nao-incidencia' },
+    ],
+  },
+  {
+    slug: 'luos-joao-pessoa-tjpb-stf-o-que-muda-no-protocolo',
+    categoria: 'Urban planning', data: '04.15.2026',
+    titulo: 'João Pessoa land use law: the ruling on article 62',
+    resumo: 'The Paraíba state court decision and its aftermath at the Supreme Court redrew the height limits within 500 metres of the shoreline. What happens to permits already granted, the effect of Provisional Measure 82/2025, and how to develop in the area now.',
+    img: 'uploads/AdobeStock_600277667-JOAOPESSOAMAPANORMATIVO.jpeg',
+    abertura: [
+      'The João Pessoa land use and zoning law (LC 166/2024) brought real changes to how the capital is planned. No provision, however, drew as much debate as article 62, which loosened building and height parameters within 500 metres of the shoreline — a strip protected by the Paraíba state constitution (art. 229).',
+      'The dispute reached the Paraíba state court, which confirmed that the provision was unconstitutional.',
+      'Then came Provisional Measure 82/2025, issued by the city itself, and the decisions handed down at the Federal Supreme Court — together reshaping how projects on the beachfront are permitted.',
+    ],
+    sumario: ['The core of the dispute', 'Effects of the ruling and the Supreme Court decision', 'Diagnosis for shoreline sites', 'What to do now'],
+    secoes: [
+      { num: '01', titulo: 'The core of the dispute: hierarchy of norms and environmental protection', kicker: 'Municipal autonomy against a state constitutional rule.',
+        paras: ['The argument turned on the conflict between the municipality’s power to legislate on land use (Federal Constitution, art. 30, VIII) and the state constitutional rule barring construction above a stepped height limit within the 500-metre coastal strip.', 'By 7 votes to 6, the state court held that the height relief in article 62 breached the ban on environmental regression and the state constitution. With the provision struck down, approvals resting on it stopped.'],
+        quote: 'When a municipal rule contradicts the frame above it, the argument leaves city hall and goes to court.' },
+      { num: '02', titulo: 'Effects of the ruling: permits already granted and the Supreme Court decision', kicker: 'The market’s question was what happens to those who already held a licence.',
+        paras: ['At the Supreme Court, the reporting justice limited the effects of the unconstitutionality ruling to protect legal certainty and completed administrative acts, without reviving the provision.'],
+        bullets: ['Projects with a permit granted before the state court decision: effects preserved, works already started continue, no immediate stop-work order', 'New filings: strictly subject to the traditional height stepping by distance from the kerb, with the state limit applied in full', 'Projects in process without an issued permit: drawings and massing must be adapted to the previous parameters, or the filing is denied'],
+        quote: 'Whoever held an issued permit before the decision kept the right to build. Whoever was about to file did not.' },
+      { num: '03', titulo: 'Diagnosis for developers and shoreline sites', kicker: 'Three lessons that stay.',
+        bullets: ['The rest of the land use law stands: apart from article 62, the rules on use, setbacks, site coverage and permitted uses in LC 166/2024 remain in force across the municipality', 'Shoreline projects need a double check: the local master plan combined with the stricter state height stepping', 'Regulatory risk management: a development resting on a recent statutory exception of doubtful legality carries the risk of being frozen by a court'],
+        quote: 'Solid structuring rests on the settled parameter, not on the recent exception.' },
+      { num: '04', titulo: 'What to do now', kicker: 'Documentation is what holds the position.',
+        paras: ['Identify and archive the rule in force on the date of each filing. That record is what defines the regime applicable to the proceeding and how far the limited-effects protection reaches.', 'With the litigation settled, permitting in the capital is becoming predictable again — and the rules of the game are known once more for new launches on the shoreline.'] },
+    ],
+    fecho: 'Filing date → rule in force on that date → where the property sits in relation to the 500-metre strip → whether a permit was already issued → how far the limited-effects ruling reaches. That chain, not the drawing, decides what can be built.',
+    faq: [
+      { q: 'Is the João Pessoa land use law still in force in 2026?', a: 'Yes. The unconstitutionality ruling reached only article 62. The court confirmed the validity of the rest of Complementary Law 166/2024.' },
+      { q: 'Are permits granted in 2025 for shoreline works at risk of annulment?', a: 'No, provided they were regular. The injunction granted on 03.13.2026 preserved the effects of permits and licences issued up to 12.10.2025, protecting the certainty of acts already performed.' },
+      { q: 'Can projects still be filed today under the relaxed height rule?', a: 'No. The provision was revoked by Provisional Measure 82/2025 and its application to new projects is barred by the state court and Supreme Court decisions.' },
+      { q: 'Is there a window to legalise buildings that exceed the height limit?', a: 'Yes. LC 182/2026 opened a two-year window, closing in April 2028, for paid regularisation of buildings up to 10% above the maximum floor-area ratio of the zone.' },
+    ],
+    leia: [
+      { label: 'Permitting and building licences', page: 'esp', slug: 'licenciamento-e-alvaras' },
+      { label: 'Legalising built work and amnesty', page: 'esp', slug: 'regularizacao-de-obra-e-imovel' },
+      { label: 'Transfer of development rights starts working in João Pessoa', page: 'artigo', slug: 'transferencia-do-direito-de-construir-joao-pessoa-decreto-11266-2026' },
+    ],
+  },
+  {
+    slug: 'itbi-potencial-construtivo-joao-pessoa-nao-incidencia',
+    categoria: 'Tax & urban planning', data: '03.02.2026',
+    titulo: 'Transfer tax does not apply to the sale of buildable density',
+    resumo: 'Selling the right to build is not selling land. Why the municipal transfer tax has no place in this market, and how to keep the deal tax-efficient.',
+    img: 'uploads/AdobeStock_250551255-ESPECIALIDADE.jpeg',
+    abertura: [
+      'As Brazilian capitals and fast-growing cities densify their centres, buying and selling buildable density — formalised as a transfer of development rights (TDC or TPC) — has moved from technical exception to a central asset in project feasibility.',
+      'The instrument comes from the City Statute (Law 10,257/2001, art. 35): an owner barred from building, whether by environmental preservation, a heritage listing or social interest, sells the unused density so that it can be exercised elsewhere in the municipality.',
+      'The problem starts when the municipal tax authority treats that sale as the sale of real property and charges ITBI, the transfer tax. The charge is wrong: it raises the cost of structuring the project and departs from the constitutional basis of the tax.',
+    ],
+    sumario: ['The constitutional basis and the taxable event', 'The legal nature of transferred density', 'Case law and the effect on feasibility', 'What to do when structuring'],
+    secoes: [
+      { num: '01', titulo: 'The constitutional basis: the taxable event of the transfer tax', kicker: 'Municipal power has a written limit.',
+        paras: ['Article 156, II of the Constitution allows a municipality to tax the transfer between living persons, for consideration, of real property by nature or accession, of rights in rem over real property other than security interests, and the assignment of rights to acquire them.', 'For the taxable event to occur, the transaction must transfer ownership of land or of an accession, or assign a right in rem recorded on the title — usufruct, surface rights and so on. Buildable density is none of those.'],
+        quote: 'Buildable density is a ratio, not a thing. Whoever buys it becomes the owner of nothing.' },
+      { num: '02', titulo: 'The legal nature of transferred density: an intangible, standalone right', kicker: 'The sending property does not change hands.',
+        paras: ['Tradable density is not land, not a building and not the sending property. It is a right to build, administrative and intangible in nature, granted by the public authority because of a restriction imposed on the property.', 'When the owner of a listed townhouse sells its density to a developer building along a transit corridor, ownership of the land stays untouched with the original holder.'],
+        bullets: ['There is no transfer of real property: the land and its accessions do not change owner', 'No right in rem is created over the original property: transferred density is represented by an administrative certificate of buildable credit issued by the city', 'The subject of the assignment is a buildable credit — an intangible asset under the Civil Code and tax law'],
+        quote: 'Taxing a density certificate as a property transfer breaches art. 110 of the Tax Code: tax law cannot change private-law concepts the Constitution uses to define taxing powers.' },
+      { num: '03', titulo: 'Case law and the effect on economic feasibility', kicker: 'The charge penalises twice.',
+        paras: ['Transfer tax rates of 2% to 3% on the deal raise the cost of each additional square metre and discourage preserving historic buildings and green areas — exactly the behaviour the instrument was designed to induce.', 'State courts have been holding that trading buildable density is not a taxable transfer event, leaving at most the administrative fees for issuing the certificate and recording the credit.'],
+        quote: 'The zoning restriction is already the cost. Taxing the sale of what is left is the cost of the cost.' },
+      { num: '04', titulo: 'What to do when structuring', kicker: 'The position protects whoever documents the deal.',
+        bullets: ['The contract must clearly separate the assignment of the right to build from any transfer of real property — a single agreement with one global price invites the tax authority to treat everything as a transfer', 'A tax assessment issued by the city should be challenged administratively or by annulment action, removing the tax without freezing the permitting of the works', 'Keep the documentary trail: the certificate issued by the city and the recording on the title prove that density was bought, not property'],
+        paras2: ['Worth noting what does not yet exist: there is no settled higher-court case law specifically on transfer tax over the transfer of development rights. The dispute is open in several municipalities, and the deal file is what holds the position.'] },
+    ],
+    fecho: 'Understanding the difference between owning land and holding the right to build is the key to the tax engineering of the deal. Transferred density is not real property — and keeping the transfer tax out at this step goes straight to the project margin.',
+    faq: [
+      { q: 'What is the difference between an exemption and non-incidence?', a: 'Under non-incidence the event sits outside the municipality’s taxing power and no tax ever existed. Under an exemption the event is taxable and a statute waives payment. An exemption requires a statute and can be repealed; non-incidence cannot.' },
+      { q: 'Can a decree state that a tax does not apply?', a: 'It can, when it merely declares a limit on taxing power that already follows from the Constitution. It could not grant an exemption, which requires a statute.' },
+      { q: 'Does buying buildable density trigger the transfer tax?', a: 'Under art. 19, §3 of Decree 11,266/2026, no. Selling buildable density is neither a transfer of real property nor of a right in rem over property, the events described in art. 156, II of the Constitution.' },
+      { q: 'What about the transfer tax on the receiving site?', a: 'It is due as usual. Buying the lot is a transfer of real property and falls squarely within the tax.' },
+    ],
+    leia: [
+      { label: 'Tax engineering of the deal', page: 'esp', slug: 'tributacao-da-operacao-imobiliaria' },
+      { label: 'Transfer of development rights', page: 'esp', slug: 'transferencia-do-direito-de-construir' },
+      { label: 'Historic centre incentives', page: 'esp', slug: 'incentivos-do-centro-historico' },
+      { label: 'Transfer of development rights starts working in João Pessoa', page: 'artigo', slug: 'transferencia-do-direito-de-construir-joao-pessoa-decreto-11266-2026' },
+    ],
+  },
+  {
+    slug: 'rppn-urbana-bonus-construtivo-monetizacao-ambiental',
+    categoria: 'Urban planning & environment', data: '08.18.2026',
+    titulo: 'Urban private reserves and the density bonus',
+    resumo: 'Preserving native vegetation inside the urban perimeter stopped being lost buildable area. How creating a private reserve generates additional floor-area ratio and lifts the average price per unit.',
+    img: 'uploads/AdobeStock_363312828-ESPECIALIDADE.jpeg',
+    abertura: [
+      'For years, the patch of woodland inside an urban lot was read as a liability. The traditional logic saw only the restriction: square metres of land that would never become saleable private area.',
+      'That paradigm collapsed as urban environmental incentives consolidated. In cities under fast densification, the statute book began rewarding whoever brings the environment into the project.',
+      'The central mechanism is the pairing of a private natural heritage reserve — RPPN at federal level, RPPNM at municipal level — with the grant of a density bonus.',
+    ],
+    sumario: ['From liability to asset: how the bonus works', 'The effect on project pricing', 'What to decide before recording it'],
+    secoes: [
+      { num: '01', titulo: 'From liability to asset: how the bonus works', kicker: 'Perpetuity is the consideration.',
+        paras: ['By creating and recording a reserve inside the urban zone, the owner formally commits the green area in perpetuity. In exchange for that voluntary limitation, the zoning rules grant benefits on the rest of the site or on the developer’s buildable stock.'],
+        bullets: ['Density bonus: the city grants additional floor-area ratio on the usable fraction of the lot — the preserved area generates buildable metres', 'Transfer of surplus density: when the geometry of the site or the local height limit prevents using the whole bonus on site, the surplus can be converted into a certificate tradable on the private market', 'Continuing tax efficiency: the area recorded as a reserve is exempt from land taxes, lowering the carrying cost for the owner or the condominium'],
+        quote: 'Vegetation stops being what you lose and becomes what you trade.' },
+      { num: '02', titulo: 'The effect on pricing and on product differentiation', kicker: 'Extra floor area without paying the city for density.',
+        paras: ['Beyond the regulatory gain, an urban reserve delivers positioning: the project sells a permanent view and an environmental argument that can be verified, not merely declared.'],
+        bullets: ['It lifts the average ticket: units facing preserved areas record a higher price per square metre than the local average', 'It reduces friction in permitting: active conservation solutions face less social and legal opposition in the neighbourhood impact study'],
+        quote: 'Modern urban engineering does not fight the vegetation on the site. It turns it into buildable density.' },
+      { num: '03', titulo: 'What to decide before recording it', kicker: 'The decision is perpetual.',
+        bullets: ['Checking the requirements on vegetation, title and fit with municipal green-area rules', 'Sizing the preservation scenario that optimises the remaining buildable area, before the massing is closed', 'Drafting the maintenance obligation so it survives delivery of the works and the setting up of the condominium'],
+        paras2: ['Perpetuity is what gives the bonus its value and also what makes regret impossible. The scenario has to be chosen while the project is still on paper.'] },
+    ],
+    fecho: 'Native vegetation → reserve created and recorded → density bonus → used on site or turned into a tradable certificate → permanent land-tax exemption. Every link depends on a decision taken before the executive design.',
+    faq: [
+      { q: 'Can an urban reserve be undone later?', a: 'No. The recognition is perpetual and follows the property, whoever owns it. That is why the preservation scenario has to be settled before the executive design.', open: true },
+      { q: 'Can the bonus be used on another site?', a: 'Where municipal law allows it, the surplus that does not fit on the lot is converted into transferable density and sold to another development.' },
+      { q: 'Does the preserved area still pay property tax?', a: 'In most statutes the fraction recorded as a reserve is exempt from land taxes for as long as the preservation commitment is met.' },
+    ],
+    leia: [
+      { label: 'Density bonus for preserving green area', page: 'esp', slug: 'bonus-construtivo-areas-verdes' },
+      { label: 'Buying and selling buildable density', page: 'esp', slug: 'transferencia-do-direito-de-construir' },
+    ],
+  },
+  {
+    slug: 'outorga-onerosa-solo-criado-auditoria-impugnacao',
+    categoria: 'Urban planning & tax', data: '08.04.2026',
+    titulo: 'Paid building rights: how to audit and challenge the charge',
+    resumo: 'Paying the city for the right to build above the basic ratio is one of the largest lines in a project budget. The legal nature of that payment, and the points where the municipal calculation goes past what the statute allows.',
+    img: 'uploads/AdobeStock_580854681-HOME.jpeg',
+    abertura: [
+      'Paid building rights — the power to build above a site’s basic limit in exchange for a payment to the city — are the main planning revenue of Brazilian cities. Regulated by the City Statute, arts. 28 to 31, this charge is a compulsory line in the budget of any vertical development.',
+      'Under revenue pressure, many municipal administrations make mistakes in the charge sheets issued at design approval.',
+      'Most developers pay the assessment without questioning it, afraid a challenge will delay the permit. Auditing the calculation at the right moment does not delay permitting — and it usually moves the project margin.',
+    ],
+    sumario: ['The main pricing errors', 'The legal nature of the payment', 'How to challenge it'],
+    secoes: [
+      { num: '01', titulo: 'The main errors in pricing the charge', kicker: 'The formula comes from the master plan. The error comes from the spreadsheet.',
+        paras: ['The calculation depends on the additional area sought, the planning factor and the municipal land value table. The most frequent irregularities cluster in three places.'],
+        bullets: ['Improper updating of the land value table: applying values restated by decree, without a formal statute — a practice rejected by the courts', 'Wrong basic ratio: ignoring fractions of the site or starting from the wrong index, inflating the area treated as excess', 'Charging non-countable areas: billing garages, technical balconies, lift shafts and common areas that the zoning law itself defines as not counting'],
+        quote: 'The calculation is not wrong out of bad faith, and that does not make it any less wrong.' },
+      { num: '02', titulo: 'The legal nature of the payment', kicker: 'This charge is not a tax.',
+        paras: ['Paid building rights are consideration under planning law, administrative in nature. The distinction is not academic: it defines who can dispute, through which route and within what deadline — and it rules out the idea that all you can do is pay and complain later.'],
+        quote: 'Not being a tax, the dispute does not follow tax-collection procedure. That changes the whole strategy.' },
+      { num: '03', titulo: 'How to challenge it', kicker: 'Disputing the amount without stopping the works.',
+        bullets: ['Administrative challenge without a freeze: ask for recalculation, showing the material error in applying the formula, before paying and without holding up the architectural review', 'Deposit of the disputed amount: where the city conditions the licence on payment in full, a writ with a deposit of the disputed portion releases the permit while the excess is argued', 'Refund claim: whoever paid an unlawfully calculated charge in the last five years can seek the excess back'],
+        paras2: ['Auditing the calculation record is part of managing the project. Regulatory compliance does not mean passively accepting the amount assessed.'] },
+    ],
+    fecho: 'Additional area sought → correct basic ratio → areas that actually count → land value backed by statute → payment due. Get one link wrong and every link after it moves, always upward.',
+    faq: [
+      { q: 'Does challenging the charge delay the permit?', a: 'Not necessarily. Recalculation can be requested alongside the architectural review, and the disputed excess can be deposited to release the licence.', open: true },
+      { q: 'Is this charge a tax?', a: 'No. It is consideration under planning law, administrative in nature, which changes the route of dispute and the applicable regime.' },
+      { q: 'Can someone who already paid claim it back?', a: 'Yes, where the calculation was unlawful. Refunds generally reach amounts paid in the last five years.' },
+    ],
+    leia: [
+      { label: 'Paid building rights', page: 'esp', slug: 'outorga-onerosa-paga-em-obras' },
+      { label: 'Tax engineering of the deal', page: 'esp', slug: 'tributacao-da-operacao-imobiliaria' },
+    ],
+  },
+  {
+    slug: 'anistia-imobiliaria-regularizacao-de-edificacoes',
+    categoria: 'Urban planning & legalisation', data: '07.14.2026',
+    titulo: 'Building amnesty: what it reaches and where it stops',
+    resumo: 'The difference between ordinary legalisation and an amnesty statute, and how to bring a non-compliant portfolio into order before the exceptional windows close.',
+    img: 'uploads/AdobeStock_316395958-ARTIGOS.jpeg',
+    abertura: [
+      'Commercial, residential and industrial developments commonly accumulate building compliance liabilities — from changes made on site that departed from the approved drawings, or from zoning changes that turned the existing use irregular.',
+      'An irregular property cannot be pledged to a bank, creates obstacles in mergers and acquisitions, draws repeat enforcement and cannot obtain an operating licence.',
+      'To bring existing buildings into the formal system, municipalities periodically pass amnesty statutes: temporary windows for legalisation on easier terms.',
+    ],
+    sumario: ['Ordinary legalisation and extraordinary amnesty', 'What an amnesty can and cannot cover', 'Diagnosis and building the filing'],
+    secoes: [
+      { num: '01', titulo: 'Ordinary legalisation and extraordinary amnesty', kicker: 'Two routes, two requirements.',
+        bullets: ['Ordinary route: the building has no permit but meets every parameter in force today — setbacks, site coverage, height and parking. Legalisation is documentary, approving the as-built design', 'Amnesty route: the building breaches current zoning parameters but was built in good faith before the cut-off date set in the exceptional statute'],
+        paras2: ['An amnesty has a hard deadline. Once the window closes, the property returns to irregularity, exposed to closure orders, demolition and escalating fines.'],
+        quote: 'The ordinary route asks whether the building complies. An amnesty asks when it was built.' },
+      { num: '02', titulo: 'What an amnesty can and cannot cover', kicker: 'Relaxing a building parameter is not forgiving everything.',
+        tabela: { head: ['Covered by amnesty', 'Not covered by amnesty'], rows: [
+          ['Site coverage and floor-area ratio in excess', 'Building inside a permanent preservation area, outside REURB'],
+          ['Front, side and rear setbacks not observed', 'Works encroaching on a street or public land'],
+          ['Shortfall in the parking spaces required for the use', 'Property with structural or fire-safety risk'],
+          ['Change of land use without a prior licence', 'Construction breaching environmental or heritage rules'],
+        ] },
+        quote: 'An amnesty forgives the zoning parameter. It does not forgive safety or a protected asset.' },
+      { num: '03', titulo: 'Diagnosis and building the filing', kicker: 'File early and you are reviewed ahead of the queue.',
+        bullets: ['Physical and documentary audit: map the portfolio to find the gap between what was built and what the city has on record', 'Proof that the works were finished: an expert report, satellite imagery, an old utility bill or a lease showing the building stood on the cut-off date', 'Accessibility and safety upgrades: the amnesty waives the zoning parameter, not the fire code or the accessibility standard'],
+        paras2: ['Filing at the start of the window means review before municipal agencies saturate — and that is what secures the occupancy permit inside the window.'] },
+    ],
+    fecho: 'Irregularity diagnosed → applicable route chosen → proof of the completion date → safety and accessibility upgrades → filing inside the deadline → occupancy permit. Outside the window, the same building goes back to the ordinary regime.',
+    faq: [
+      { q: 'What is the difference between ordinary legalisation and amnesty?', a: 'The ordinary route applies to a property that meets current parameters and merely lacks a licence. Amnesty reaches a property that breaches parameters, provided it was built before the statutory cut-off date.', open: true },
+      { q: 'Can any irregularity be covered by amnesty?', a: 'No. Among others, works over public land, buildings with structural or fire risk and construction breaching environmental or heritage rules stay out.' },
+      { q: 'What happens when the amnesty window closes?', a: 'The property returns to irregular status and is again exposed to closure orders, escalating fines and, in extreme cases, demolition.' },
+    ],
+    leia: [
+      { label: 'Legalising built work', page: 'esp', slug: 'regularizacao-de-obra-e-imovel' },
+      { label: 'Permitting, licences and design approval', page: 'esp', slug: 'licenciamento-e-alvaras' },
+    ],
+  },
+];
+
+const PESSOAS = [
+  {
+    name: 'Diego Vieira',
+    role: 'Founder and lawyer in charge',
+    local: 'João Pessoa · PB, Brazil',
+    slotId: 'eq-diego',
+    slotHint: 'Portrait of the lawyer',
+    tags: ['Lawyer', 'João Pessoa'],
+    bio: 'I run the permitting, legalisation and property tax matters myself. I read the statute to the end, plan the route before filing, and defend the position in front of the agency.',
+    ficha: [
+      ['Bar', 'Brazilian Bar, OAB/PB no. 36,529'],
+      ['Practice', 'Urban planning · Real estate · Tax'],
+      ['Languages', 'Portuguese · English · Spanish'],
+    ],
+    frentes: ['Building permits', 'Legalising existing buildings', 'Transfer tax and paid building rights', 'Zoning feasibility'],
+    credenciais: [
+      ['Education', 'Law · Faculdades Metropolitanas Unidas, FMU · 2013'],
+      ['Bar', 'Brazilian Bar, OAB/PB no. 36,529'],
+      ['Base', 'João Pessoa · PB, serving clients from São Paulo · SP'],
+    ],
+  },
+  {
+    name: 'Gabriela Rodrigues',
+    role: 'Architect · technical network',
+    local: 'Fixed scope, under legal coordination',
+    slotId: 'eq-arquiteta',
+    slotHint: 'Portrait of the architect',
+    tags: ['Architect', 'Technical network'],
+    bio: 'I translate zoning parameters into design: height, setbacks, site coverage and buildable density. I come into a matter with a fixed scope, under legal coordination.',
+    ficha: [
+      ['Practice', 'Design · Approval · Height studies'],
+      ['Engagement', 'Fixed scope per matter'],
+      ['Base', 'João Pessoa · PB, Brazil'],
+    ],
+    frentes: ['Massing and height studies', 'Design for approval', 'Alignment with the zoning rules'],
+    credenciais: [
+      ['Education', 'Architecture and Urbanism'],
+      ['Engagement', 'Brought in on a defined scope, under legal coordination'],
+    ],
+  },
+];
+
+class Component extends DCLogic {
+  state = { page: 'home', slug: null, acc: 0, accC: 0, accR: 0, radarJur: 'Todos', setor: 0, hoverEsp: null, pessoa: -1, subEmail: '', searchOpen: false, query: '', scrolled: false };
+
+  componentDidMount() {
+    this.observe();
+    this.onKey = (e) => { if (e.key === 'Escape') this.setState({ searchOpen: false }); };
+    document.addEventListener('keydown', this.onKey);
+    this.onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      const on = y > 260;
+      if (on !== this.state.scrolled) this.setState({ scrolled: on });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    this.startAuto();
+    this.startAutoSetor();
+  }
+  startAutoSetor() {
+    clearInterval(this._autoS);
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this._autoS = setInterval(() => this.setState((st) => ({ setor: (st.setor + 1) % 4 })), 5200);
+  }
+  startAuto() {
+    clearInterval(this._auto);
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this._auto = setInterval(() => {
+      this.setState((st) => ({ acc: (st.acc + 1) % 5 }));
+    }, 5200);
+  }
+  componentWillUnmount() { document.removeEventListener('keydown', this.onKey); window.removeEventListener('scroll', this.onScroll); clearInterval(this._auto); clearInterval(this._autoS); }
+  componentDidUpdate(prev) { if (prev.state && prev.state.page !== this.state.page) this.observe(); else this.observe(); }
+
+  observe() {
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    clearTimeout(this._t);
+    this._t = setTimeout(() => {
+      if (!this._io) {
+        this._io = new IntersectionObserver((entries) => {
+          entries.forEach((en, i) => {
+            if (!en.isIntersecting) return;
+            const el = en.target;
+            el.style.transition = 'opacity .75s var(--ease), transform .75s var(--ease)';
+            el.style.transitionDelay = (i * 60) + 'ms';
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            this._io.unobserve(el);
+          });
+        }, { rootMargin: '0px 0px -8% 0px' });
+      }
+      if (!this._ioLine) {
+        this._ioLine = new IntersectionObserver((entries) => {
+          entries.forEach((en) => {
+            if (!en.isIntersecting) return;
+            en.target.style.transition = 'transform 1.8s var(--ease)';
+            en.target.style.transform = 'scaleY(1)';
+            this._ioLine.unobserve(en.target);
+          });
+        }, { rootMargin: '0px 0px -15% 0px' });
+      }
+      document.querySelectorAll('[data-reveal-line]:not([data-seen])').forEach((el) => {
+        el.setAttribute('data-seen', '1');
+        this._ioLine.observe(el);
+      });
+      document.querySelectorAll('[data-reveal]:not([data-seen])').forEach((el) => {
+        el.setAttribute('data-seen', '1');
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(26px)';
+        this._io.observe(el);
+      });
+    }, 60);
+  }
+
+  nav = (page, slug) => {
+    const el = this.pageEl;
+    if (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(12px)';
+    }
+    setTimeout(() => {
+      this.setState({ page, slug: slug || null, searchOpen: false, query: '' });
+      window.scrollTo(0, 0);
+      requestAnimationFrame(() => {
+        if (this.pageEl) {
+          this.pageEl.style.opacity = '1';
+          this.pageEl.style.transform = 'none';
+        }
+      });
+    }, 260);
+  };
+
+  go = (page, slug) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.nav(page, slug); };
+
+  scrollCar = (dir) => () => {
+    const el = this.carEl;
+    if (el) el.scrollBy({ left: dir * (el.clientWidth * 0.6), behavior: 'smooth' });
+  };
+
+  renderVals() {
+    const p = this.state.page;
+    const esp = ESP.find((e) => e.slug === this.state.slug) || ESP[0];
+    const q = this.state.query.trim().toLowerCase();
+
+    const pages = [
+      ['Advisory', 'consultoria', 'Page'],
+      ['Practice areas', 'especialidades', 'Page'],
+      ['Insights', 'analises', 'Page'],
+      ['Contact', 'contato', 'Page'],
+    ];
+    const index = pages.map(([label, page, sub]) => ({ label, sub, page, slug: null, hay: label }))
+      .concat(ESP.map((e) => ({ label: e.nome, sub: e.camada === 'base' ? 'Core service' : e.camada === 'apoio' ? 'Support layer' : 'Instrument', page: 'esp', slug: e.slug, hay: e.nome + ' ' + e.curto })))
+      .concat(ARTIGOS.map((a) => ({ label: a.titulo, sub: 'Insight · ' + a.categoria, page: 'artigo', slug: a.slug, hay: a.titulo + ' ' + a.resumo })));
+    const results = index
+      .filter((r) => !q || r.hay.toLowerCase().indexOf(q) >= 0)
+      .slice(0, 10)
+      .map((r) => ({ label: r.label, sub: r.sub, onClick: this.go(r.page, r.slug) }));
+
+    const cards = ARTIGOS.map((a, i) => ({
+      topic: a.categoria, title: a.titulo, excerpt: a.resumo, date: a.data, img: a.img,
+      slotId: 'an-' + (i + 1), slotIdB: 'an-' + (i + 1) + 'b', slotHint: 'Documentary photo',
+      onClick: this.go('artigo', a.slug),
+    }));
+    const CAMADA_LABEL = { base: 'First phase · structuring', mecanismo: 'Critical phase · development', apoio: 'Final phase · legalisation' };
+    const hovSlug = this.state.hoverEsp || ESP[0].slug;
+    const grupo = (titulo, camada, nota) => ({
+      titulo,
+      nota,
+      items: ESP.filter((e) => e.camada === camada).map((e) => ({
+        nome: e.nome, curto: e.curto,
+        camada: CAMADA_LABEL[e.camada],
+        active: e.slug === hovSlug,
+        cor: e.slug === hovSlug ? 'var(--roxo-deep)' : 'var(--ink)',
+        linha: e.slug === hovSlug ? 'var(--roxo-deep)' : 'var(--line)',
+        marca: e.slug === hovSlug ? 'var(--roxo)' : 'transparent',
+        onHover: () => this.setState({ hoverEsp: e.slug }),
+        onClick: this.go('esp', e.slug),
+      })),
+    });
+    const hov = ESP.find((e) => e.slug === hovSlug) || ESP[0];
+
+    return {
+      yes: true,
+      pageRef: (el) => { this.pageEl = el; },
+      carRef: (el) => { this.carEl = el; },
+      subEmail: this.state.subEmail,
+      onSubEmail: (e) => this.setState({ subEmail: e.target.value }),
+      onSubscribe: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const mail = (this.state.subEmail || '').trim();
+        if (!mail) return;
+        const assunto = 'New subscriber: ' + mail;
+        const corpo = mail + ' just subscribed to the insights.';
+        window.location.href = 'mailto:diego@vieira-rodrigues.com?subject=' + encodeURIComponent(assunto) + '&body=' + encodeURIComponent(corpo);
+        this.setState({ subEmail: '' });
+      },
+      abrirWhatsApp: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const nome = (PESSOAS[this.state.pessoa] || {}).name || '';
+        const texto = 'Hello, Diego. I came from the site' + (nome ? ' — ' + nome : '') + '.';
+        window.open('https://wa.me/5583991715836?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+      },
+      goHome: this.go('home'), goConsultoria: this.go('consultoria'), goEspecialidades: this.go('especialidades'),
+      goAnalises: this.go('analises'),
+      goContato: this.go('contato'), goLegal: this.go('legal'),
+
+      isHome: p === 'home', isConsultoria: p === 'consultoria', isEsp: p === 'especialidades',
+      isEspDetail: p === 'esp', isAnalises: p === 'analises',
+      isContato: p === 'contato', isLegal: p === 'legal',
+      isArtigo: p === 'artigo',
+
+      navItems: [
+        { label: 'Advisory', onClick: this.go('consultoria') },
+        { label: 'Practice areas', onClick: this.go('especialidades') },
+        { label: 'Insights', onClick: this.go('analises') },
+        { label: 'Contact', onClick: this.go('contato') },
+      ],
+
+      searchOpen: this.state.searchOpen,
+      openSearch: () => this.setState({ searchOpen: true }),
+      closeSearch: () => this.setState({ searchOpen: false, query: '' }),
+      query: this.state.query,
+      onQuery: (e) => this.setState({ query: e.target.value }),
+      results,
+
+      camadas: [
+        { label: 'WHAT', title: 'What can this lot actually take?', foco: 'Zoning feasibility', text: 'Zoning, floor-area ratio, height limits, setbacks, site coverage, heritage listings and environmental restrictions. What the statute allows outright and what it makes you pay for.' },
+        { label: 'HOW', title: 'How should the deal be built?', foco: 'Legal structuring', text: 'Purchase, land-for-units or land-for-cash swap, condominium development, subdivision or assignment of rights. The model chosen sets how risk is split and how cash flows.' },
+        { label: 'HOW MUCH', title: 'What is the tax bill on this project?', foco: 'Tax planning', text: 'Transfer tax on acquisition, property tax during construction, the density payment at permitting, capital gains and the special construction regime on exit. The tax number belongs in the feasibility study, not in a surprise at the end.' },
+      ],
+
+      accItems: ACC_SLUGS.map((slug, i) => {
+        const e = ESP.find((x) => x.slug === slug);
+        return {
+          num: '0' + (i + 1), nome: e.nome, texto: e.lei, base: e.base,
+          barW: this.state.acc === i ? '100%' : '0%',
+          cor: this.state.acc === i ? 'var(--roxo-deep)' : 'var(--ink)',
+          fotoOp: this.state.acc === i ? 1 : 0,
+          slotId: 'acc-' + slug, slotHint: ACC_HINTS[slug], img: ACC_IMGS[slug],
+          onClick: () => this.setState({ acc: this.state.acc === i ? -1 : i }),
+        onEnter: () => { clearTimeout(this._hovA); clearInterval(this._auto); this._auto = null; this._hovA = setTimeout(() => this.setState({ acc: i }), 120); },
+        onLeaveA: () => { clearTimeout(this._hovA); this.startAuto(); },
+          onOpenPage: this.go('esp', slug),
+        };
+      }),
+
+      setores: [
+        { nome: 'Developers and construction', linha: 'Maximising buildable density and project feasibility.', texto: 'From validating the site to handing over the occupancy permit: managing the density payment, zoning incentives, building licences and the tax structure of project vehicles.', img: 'uploads/AdobeStock_580854681-HOME.jpeg', slotHint: 'Construction site' },
+        { nome: 'Real estate funds, asset managers and family offices', linha: 'Certainty in capital allocation and audit of complex assets.', texto: 'Real estate and tax due diligence on land and buildings, feasibility of buying and selling density certificates, and treatment of transfer tax, property tax and capital gains.', img: 'uploads/pexels-adriano-queiroz-dias-367417054-14465329.jpg', slotHint: 'Office towers' },
+        { nome: 'Listed buildings and historic centres', linha: 'Monetising restrictions and tax efficiency for protected assets.', texto: 'Families, heirs and investors inside listed perimeters: issuing and selling density certificates, property and transfer tax exemptions, and legal certainty for restoration projects.', img: 'uploads/AdobeStock_581810240-HOME.jpeg', slotHint: 'Listed townhouse' },
+        { nome: 'Hospitality, retail and retrofit', linha: 'Getting licences through and bringing existing buildings back.', texto: 'Hotel groups, retail chains and retrofit developers: land use compliance, operating licences and approval before heritage agencies.', img: 'uploads/pexels-leonardodourado-17967169.jpg', slotHint: 'Retail facade' },
+      ].map((s, i) => Object.assign({}, s, {
+        slotId: 'setor-' + i,
+        barW: this.state.setor === i ? '100%' : '0%',
+        cor: this.state.setor === i ? 'var(--roxo)' : '#fff',
+        fotoOp: this.state.setor === i ? 1 : 0,
+        onEnter: () => { clearInterval(this._autoS); this._autoS = null; this.setState({ setor: i }); },
+        onLeave: () => this.startAutoSetor(),
+      })),
+      people: PESSOAS.map((p, i) => Object.assign({}, p, {
+        tags: p.tags.map((t) => ({ t })),
+        onClick: (e) => { if (e) e.preventDefault(); this.setState({ pessoa: i }); },
+      })),
+      pessoaSel: (() => {
+        const p = PESSOAS[this.state.pessoa];
+        if (!p) return null;
+        return Object.assign({}, p, {
+          nomeSobre: 'About ' + p.name.split(' ')[0],
+          ficha: p.ficha.map(([k, v]) => ({ k, v })),
+          frentes: p.frentes.map((t) => ({ t })),
+          credenciais: p.credenciais.map(([k, v]) => ({ k, v })),
+        });
+      })(),
+      fecharPessoa: (e) => { if (e) e.preventDefault(); this.setState({ pessoa: -1 }); },
+
+      insights: cards,
+      insightDestaque: cards.slice(0, 1),
+      insightsSec: cards.slice(1, 3),
+
+      artigo: (() => {
+        const a = ARTIGOS.find((x) => x.slug === this.state.slug) || ARTIGOS[0];
+        return {
+          categoria: a.categoria, data: a.data, titulo: a.titulo, resumo: a.resumo, img: a.img, fecho: a.fecho,
+          abertura: a.abertura.map((text) => ({ text })),
+          sumario: a.sumario.map((text, i) => ({
+            n: '0' + (i + 1), text, anchor: 'artigo-sec-0' + (i + 1),
+            onClick: (e) => {
+              if (e && e.preventDefault) e.preventDefault();
+              const el = document.getElementById('artigo-sec-0' + (i + 1));
+              if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+            },
+          })),
+          secoes: a.secoes.map((s) => ({
+            num: s.num, titulo: s.titulo, kicker: s.kicker,
+            paras: (s.paras || []).map((text) => ({ text })),
+            paras2: (s.paras2 || []).map((text) => ({ text })),
+            bullets: (s.bullets || []).map((text) => ({ text })),
+            hasBullets: !!(s.bullets && s.bullets.length),
+            hasTabela: !!s.tabela,
+            tabela: s.tabela ? { head: s.tabela.head.map((t) => ({ t })), rows: s.tabela.rows.map((r) => ({ cells: r.map((t) => ({ t })) })) } : { head: [], rows: [] },
+            hasQuote: !!s.quote, quote: s.quote || '',
+          })),
+          faq: a.faq.map((f, i) => ({ q: f.q, a: f.a, open: i === 0 })),
+          leia: a.leia.map((l) => ({ label: l.label, onClick: this.go(l.page, l.slug) })),
+        };
+      })(),
+
+      carPrev: this.scrollCar(-1),
+      carNext: this.scrollCar(1),
+
+      markOpacity: this.state.scrolled ? 1 : 0,
+      markPointer: this.state.scrolled ? 'auto' : 'none',
+      markShift: this.state.scrolled ? 'translateX(-50%)' : 'translateX(-50%) translateY(-14px)',
+      toTop: (e) => { if (e && e.preventDefault) e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+      espGroups: [
+        grupo('First phase · structuring', 'base', 'Validating the site, legal feasibility and buildable density.'),
+        grupo('Critical phase · development', 'mecanismo', 'Where projects stall: complex permitting, density payments, zoning and regulatory risk.'),
+        grupo('Final phase · legalisation', 'apoio', 'Meeting the planning requirements, occupancy permit and structuring sales.'),
+      ],
+
+      hov: {
+        nome: hov.nome, curto: hov.curto, h1: hov.h1, lei: hov.lei, base: hov.base,
+        camada: CAMADA_LABEL[hov.camada],
+        img: ACC_IMGS[hov.slug] || 'uploads/AdobeStock_340474835.jpeg',
+        slotId: 'esp-foto-' + hov.slug,
+        escopo: hov.escopo.slice(0, 3).map((text) => ({ text })),
+        onClick: this.go('esp', hov.slug),
+      },
+
+      esp: {
+        h1: esp.h1, curto: esp.curto, lei: esp.lei, base: esp.base, destaque: esp.destaque,
+        escopo: esp.escopo.map((text) => ({ text })),
+        relacionados: esp.relacionados.map((s) => {
+          const r = ESP.find((x) => x.slug === s);
+          return { nome: r ? r.nome : s, onClick: this.go('esp', s) };
+        }),
+      },
+
+      consultoriaOque: [
+        { text: 'Urban planning advisory means identifying what the rules allow on a property and steering its permitting to the final certificates and licences.' },
+        { text: 'It is not architecture or engineering. Technical professionals draw and build; legal advisory sets the limits and the openings within which the project can exist.' },
+        { text: 'Nor is it filing paperwork. The filing is only the end of the work. The value sits in reading the statutes early, choosing the permitting route and managing regulatory risk.' },
+        { text: 'Because it involves statutory interpretation, case law and liability mitigation, it is the lawyer’s responsibility.' },
+      ],
+      consultoriaMetodo: [
+        { n: '01', t: 'Regulatory diagnosis', d: 'Gathering the property’s documents, the title record, its zoning classification and related statutes. Establishes the basic buildable density, with nothing owed to the city.' },
+        { n: '02', t: 'Legal feasibility study', d: 'Density scenarios, applicable planning instruments, an estimate of the density payment and the regulatory timeline. Sizes the maximum buildable capacity.' },
+        { n: '03', t: 'Filing strategy', d: 'The sequence of licences, the agencies involved — heritage, environment, city hall — and the documents each one wants. Prevents overlapping demands and repeat requests.' },
+        { n: '04', t: 'Running the permitting', d: 'Full handling of the administrative process: technical meetings with the licensing agency, answers to requirements and any appeals, through to the construction permit.' },
+      ],
+      consultoriaCamadas: [
+        { titulo: 'What can I build?', texto: 'Master plan, land use law, heritage decrees, environmental conditions and private covenants, brought together in one reading.', itens: [{ text: 'Building parameters: zoning, basic and maximum floor-area ratio, permitted height' }, { text: 'Urban form: site coverage, required setbacks and permeability ratio' }, { text: 'Prior restrictions: heritage listing, permanent preservation areas, protection perimeters and the coastal strip' }, { text: 'Instruments to go further: paid building rights, transfer of development rights and CEPAC certificates' }] },
+        { titulo: 'How should the deal be structured?', texto: 'The same development takes different legal shapes depending on the investor’s strategy. The model chosen sets how risk is split, how efficient the tax is and how cash flows.', itens: [{ text: 'Deal models: acquisition, land-for-units swap, land-for-cash swap and assignment of rights' }, { text: 'Product structures: condominium development, subdivision and lot condominiums' }, { text: 'Risk mitigation: real estate, planning and contract due diligence' }, { text: 'Corporate structure: project vehicles, silent partnerships and asset protection' }] },
+        { titulo: 'What will it cost?', texto: 'Transfer tax at registration, property tax during construction, the density payment at permitting and capital gains on exit. All calculated inside the feasibility study, so the decision has numbers.', itens: [{ text: 'Transfer tax: immunities, non-incidence and challenges to an inflated assessment basis' }, { text: 'Property tax: temporary exemptions, relief and incentives for urban renewal or heritage listing' }, { text: 'Density payment: audit of the calculation record and ways to settle it — cash, works or certificates' }, { text: 'Exit: special tax regimes, capital gains and the sale of buildable density' }] },
+      ].map((c, i) => Object.assign({}, c, {
+        num: '0' + (i + 1),
+        sign: this.state.accC === i ? '–' : '+',
+        open: this.state.accC === i,
+        slotId: 'cons-camada-' + i,
+        img: ['uploads/AdobeStock_600277667-JOAOPESSOAMAPANORMATIVO.jpeg', 'uploads/AdobeStock_656165341-JOAOPESSOA-CONTATO.jpeg', 'uploads/AdobeStock_316395958-ARTIGOS.jpeg'][i],
+        slotHint: 'Documentary photo',
+        onClick: () => this.setState({ accC: this.state.accC === i ? -1 : i }),
+        onEnter: () => { clearTimeout(this._hovC); this._hovC = setTimeout(() => this.setState({ accC: i }), 160); },
+        onLeaveC: () => clearTimeout(this._hovC),
+      })),
+
+      advogadoFicha: [
+        { k: 'Bar', v: 'Brazilian Bar, OAB/PB no. 36,529' },
+        { k: 'Practice', v: 'Urban planning · Real estate · Tax' },
+        { k: 'Education', v: 'Law · Faculdades Metropolitanas Unidas, FMU · 2013' },
+        { k: 'Further study', v: 'Tax Law, 320h · ISE Business School · 2015' },
+        { k: 'Extension', v: 'Museum Education · Pinacoteca de São Paulo' },
+        { k: 'Languages', v: 'Portuguese · English · Spanish' },
+        { k: 'Base', v: 'João Pessoa · PB, Brazil' },
+      ],
+
+      legalSecoes: [
+        { t: 'Who publishes this', d: 'Vieira-Rodrigues Advocacia — a sole practitioner law firm held by Diego Rodrigues Vieira, Brazilian Bar (OAB/PB) no. 36,529, based in João Pessoa · PB, Brazil.' },
+        { t: 'This content is not legal advice', d: 'Any analysis depends on the facts of the case. The statutes cited can change, and part of João Pessoa’s planning legislation is under judicial review.' },
+        { t: 'No attorney-client relationship', d: 'Sending a message through the form, contacting us on WhatsApp and reading this content do not create a professional relationship.' },
+        { t: 'Intellectual property', d: 'The content may be quoted with attribution and a link. Full reproduction requires permission.' },
+        { t: 'External links', d: 'Links to statutes and official sources do not imply responsibility for third-party content.' },
+        { t: 'Professional privilege', d: 'A lawyer’s duty of confidentiality comes from the Brazilian Bar statute and code of ethics. What a client says in the first conversation is already protected, even if no engagement follows.' },
+      ],
+
+      footerCols: [
+        { titulo: 'Legal', links: [{ label: 'Terms of use', onClick: this.go('legal') }, { label: 'Privacy policy', onClick: this.go('legal') }, { label: 'Confidentiality and data', onClick: this.go('legal') }] },
+        { titulo: 'Social', links: [{ label: 'Instagram', href: 'https://www.instagram.com/diegovieirarodrigues' }, { label: 'LinkedIn', href: 'https://www.linkedin.com/company/vieira-rodrigues-adv' }, { label: 'Email', href: 'mailto:diego@vieira-rodrigues.com' }, { label: 'WhatsApp', href: 'https://wa.me/5583991715836' }] },
+        { titulo: 'Explore', links: [{ label: 'Practice areas', onClick: this.go('especialidades') }, { label: 'Insights', onClick: this.go('analises') }] },
+        { titulo: 'Firm', links: [{ label: 'Advisory', onClick: this.go('consultoria') }, { label: 'Contact', onClick: this.go('contato') }] },
+      ].map((c) => ({ titulo: c.titulo, links: c.links.map((l) => ({ label: l.label, href: l.href || '#', onClick: l.onClick })) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

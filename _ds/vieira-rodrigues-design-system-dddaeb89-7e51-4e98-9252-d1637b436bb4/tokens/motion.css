@@ -1,0 +1,15 @@
+/* Movimento — revelação no scroll, transições curtas, nada de bounce.
+   Todo movimento é suprimido em prefers-reduced-motion. */
+:root{
+  --ease:cubic-bezier(.2,.7,.2,1); /* @kind other */
+  --dur-fast:.18s; /* @kind other */
+  --dur:.2s; /* @kind other */
+  --dur-med:.25s; /* @kind other */
+  --dur-slow:.35s; /* @kind other */
+  --dur-img:.45s; /* @kind other */
+  --dur-reveal:.75s; /* @kind other */
+  --dur-hero:1s; /* @kind other */
+  --reveal-y:26px; /* @kind other */
+  --reveal-stagger:60ms; /* @kind other */
+  --img-zoom:1.03; /* @kind other */
+}

@@ -1,0 +1,25 @@
+/* Espaçamento e grade — seções de 104 px (66 px no mobile), grade de 1280 px. */
+:root{
+  --sp-1:4px; --sp-2:6px; --sp-3:8px; --sp-4:10px; --sp-5:12px; --sp-6:14px; /* @kind spacing */
+  --sp-7:16px; --sp-8:18px; --sp-9:20px; --sp-10:24px; --sp-11:28px; --sp-12:32px; /* @kind spacing */
+  --sp-13:36px; --sp-14:40px; --sp-15:48px; --sp-16:56px; --sp-17:72px; --sp-18:88px; /* @kind spacing */
+  --sp-19:104px; /* @kind spacing */
+
+  --wrap:1280px; /* @kind spacing */
+  --gutter:20px; /* @kind spacing */
+  --gutter-lg:40px; /* @kind spacing */
+  --sec-y:104px; /* @kind spacing */
+  --sec-y-mobile:66px; /* @kind spacing */
+  --split-gap:28px 56px; /* @kind spacing */
+  --grid-gap:40px; /* @kind spacing */
+
+  --btn-pad:15px 24px; /* @kind spacing */
+  --pill-pad:7px 14px; /* @kind spacing */
+  --field-pad:13px 14px; /* @kind spacing */
+  --form-pad:34px; /* @kind spacing */
+
+  /* aliases semânticos */
+  --space-section:var(--sec-y); /* @kind spacing */
+  --space-block:var(--sp-16); /* @kind spacing */
+  --space-stack:var(--sp-8); /* @kind spacing */
+}

@@ -1,0 +1,52 @@
+/* Tipografia — Archivo do display à nota. Hierarquia por peso, corpo e tracking. */
+:root{
+  /* pesos */
+  --w-regular:400; /* @kind font */
+  --w-medium:500; /* @kind font */
+  --w-semibold:600; /* @kind font */
+  --w-bold:700; /* @kind font */
+  --w-black:800; /* @kind font */
+  /* corpos web */
+  --fs-brand:clamp(46px,9vw,118px); /* @kind font */
+  --fs-h1:clamp(36px,4.4vw,58px); /* @kind font */
+  --fs-h2:clamp(32px,4.4vw,56px); /* @kind font */
+  --fs-decl:clamp(28px,4.2vw,54px); /* @kind font */
+  --fs-tese:clamp(22px,2.8vw,32px); /* @kind font */
+  --fs-stat:38px; /* @kind font */
+  --fs-num:34px; /* @kind font */
+  --fs-h3:21px; /* @kind font */
+  --fs-h3-sm:19px; /* @kind font */
+  --fs-lede:17.5px; /* @kind font */
+  --fs-body:17px; /* @kind font */
+  --fs-note:16px; /* @kind font */
+  --fs-small:14.5px; /* @kind font */
+  --fs-meta:13.5px; /* @kind font */
+  --fs-base:13px; /* @kind font */
+  --fs-topbar:12.5px; /* @kind font */
+  --fs-eyebrow:11.5px; /* @kind font */
+  --fs-tema:11px; /* @kind font */
+  /* entrelinhas */
+  --lh-brand:.88; /* @kind font */
+  --lh-display:1.02; /* @kind font */
+  --lh-h1:1.03; /* @kind font */
+  --lh-h3:1.18; /* @kind font */
+  --lh-body:1.6; /* @kind font */
+  --lh-lede:1.5; /* @kind font */
+  --lh-tight:1.45; /* @kind font */
+  /* tracking */
+  --tr-brand:-.045em; /* @kind font */
+  --tr-title:-.032em; /* @kind font */
+  --tr-h3:-.02em; /* @kind font */
+  --tr-stat:-.028em; /* @kind font */
+  --tr-label:.15em; /* @kind font */
+  --tr-nav:.12em; /* @kind font */
+  /* medidas */
+  --measure-note:40ch; /* @kind spacing */
+  --measure-lede:46ch; /* @kind spacing */
+  --measure-prose:74ch; /* @kind spacing */
+
+  /* aliases semânticos */
+  --text-display:var(--fs-h1); /* @kind font */
+  --text-title:var(--fs-h2); /* @kind font */
+  --text-label:var(--fs-eyebrow); /* @kind font */
+}

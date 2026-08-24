@@ -1,0 +1,44 @@
+/* Cor — creme quente, tinta quente e um único acento roxo.
+   Proporção alvo em qualquer peça: ~70% papel, ~25% tinta, ~5% roxo.
+   Nunca azul, nunca verde. */
+:root{
+  /* papel */
+  --paper-2:#F5F2E9;
+  --paper:#EBE7DA;
+  --stone:#DDD7C7;
+  --roxo-wash:#F1E3FE;
+  /* tinta */
+  --ink:#141310;
+  --ink-2:#2C2A25;
+  --ink-3:#6E6A60;
+  --ink-surf:#1A1815;
+  --ink-surf-2:#232019;
+  /* roxo — o acento */
+  --roxo:#A93CF7;
+  --roxo-lt:#C77BFF;
+  --roxo-deep:#8412D8;
+  /* fios */
+  --line:rgba(20,19,16,.14);
+  --line-d:rgba(255,255,255,.16);
+  /* texto sobre tinta */
+  --on-ink:#ffffff;
+  --on-ink-2:rgba(255,255,255,.66);
+  --on-ink-3:rgba(255,255,255,.48);
+
+  /* aliases semânticos — claro */
+  --bg-page:var(--paper-2);
+  --bg-alt:var(--paper);
+  --bg-dark:var(--ink);
+  --surface-dark:var(--ink-surf-2);
+  --surface-inert:var(--stone);
+  --text-body:var(--ink);
+  --text-muted:var(--ink-3);
+  --text-accent:var(--roxo-deep);
+  --text-accent-on-dark:var(--roxo-lt);
+  --accent-surface:var(--roxo);
+  --focus-ring:var(--roxo);
+  --border-hair:var(--line);
+  --border-hair-dark:var(--line-d);
+  --link:var(--roxo-deep);
+  --link-hover:var(--ink);
+}

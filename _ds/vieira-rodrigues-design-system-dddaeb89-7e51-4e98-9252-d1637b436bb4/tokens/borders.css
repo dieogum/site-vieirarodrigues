@@ -1,0 +1,18 @@
+/* Forma — raio zero em tudo. A estrutura se faz com fios de 1 px,
+   quadrados roxos de 8–9 px, faixa roxa de 16 px e fio roxo de 4 px na citação. */
+:root{
+  --r:0; /* @kind radius */
+  --r-lg:0; /* @kind radius */
+  --radius:0; /* @kind radius */
+  --hair:1px; /* @kind other */
+  --border-hairline:1px solid var(--line); /* @kind other */
+  --border-hairline-dark:1px solid var(--line-d); /* @kind other */
+  --border-strong:1px solid var(--ink); /* @kind other */
+  --sq:9px; /* @kind spacing */
+  --sq-sm:8px; /* @kind spacing */
+  --faixa-h:16px; /* @kind spacing */
+  --faixa-h-doc:10px; /* @kind spacing */
+  --quote-rule:4px; /* @kind spacing */
+  --quote-indent:26px; /* @kind spacing */
+  --tick:7px; /* @kind spacing */
+}

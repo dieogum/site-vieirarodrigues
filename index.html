@@ -9,6 +9,9 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#141310">
 <link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/fonts.css">
 <link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/colors.css">
 <link rel="stylesheet" href="_ds/vieira-rodrigues-design-system-dddaeb89-7e51-4e98-9252-d1637b436bb4/tokens/typography.css">
@@ -44,7 +47,7 @@
 <div style="background: var(--paper-2); min-height: 100vh; font-family: var(--sans); color: var(--ink)">
 
   <div style="background: var(--ink); color: rgba(255,255,255,.6); font-size: 12.5px">
-    <div style="display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center; justify-content: space-between; max-width: var(--wrap); margin: 0 auto; padding: 10px 40px">
+    <div style="display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center; justify-content: space-between; max-width: var(--wrap); margin: 0 auto; padding: 10px {{ pSide }}">
       <div style="display: flex; gap: 24px; flex-wrap: wrap">
         <a href="mailto:diego@vieira-rodrigues.com" style="color: rgba(255,255,255,.85)">diego@vieira-rodrigues.com</a>
         <a href="tel:+5583991715836" style="color: rgba(255,255,255,.85)">João Pessoa +55 83 99171-5836</a>
@@ -55,7 +58,7 @@
 
   <div style="position: relative">
     <header style="position: absolute; left: 0; right: 0; z-index: 60">
-      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px 20px; max-width: var(--wrap); margin: 0 auto; padding: 26px 40px">
+      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px 20px; max-width: var(--wrap); margin: 0 auto; padding: {{ pHead }}">
         <a href="#" onClick="{{ goHome }}" style="display: flex; flex-direction: column; gap: 5px; margin-right: 4px">
           <span style="display: inline-flex; align-items: flex-end; font-family: var(--brand); font-weight: 800; font-size: 18px; line-height: .88; letter-spacing: -.045em; text-transform: uppercase; color: var(--paper-2); white-space: nowrap">
             <span>
@@ -66,7 +69,7 @@
           </span>
           <span style="font-size: 9.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.5)">Advocacia</span>
         </a>
-        <nav style="display: flex; flex: 1; justify-content: flex-end">
+        <nav style="display: {{ navDisp }}; flex: 1; justify-content: flex-end">
           <ul style="display: flex; flex-wrap: wrap; gap: 10px 22px; list-style: none; margin: 0; padding: 0; justify-content: flex-end">
             <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
               <li>
@@ -77,7 +80,17 @@
         </nav>
         <button type="button" onClick="{{ openSearch }}" aria-label="Buscar" style="background: transparent; border: 1px solid rgba(255,255,255,.32); color: #fff; font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 9px 14px; cursor: pointer" style-hover="background: rgba(255,255,255,.12)">Buscar</button>
         <a href="en.html" style="font-size: 12px; font-weight: 700; color: rgba(255,255,255,.7); letter-spacing: .13em">EN</a>
+        <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" style="display: {{ menuBtnDisp }}; background: transparent; border: 1px solid rgba(255,255,255,.32); color: #fff; font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 9px 14px; cursor: pointer">{{ menuLabel }}</button>
       </div>
+      <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position: fixed; inset: 0; z-index: 70; background: var(--ink); display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 88px 20px 40px; overflow-y: auto">
+          <button type="button" onClick="{{ toggleMenu }}" aria-label="Fechar" style="position: absolute; top: 22px; right: 20px; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.24); background: transparent; color: #fff; font-size: 20px; cursor: pointer">×</button>
+          <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+            <a href="#" onClick="{{ item.onClickMob }}" style="display: block; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.16); font-family: var(--display); font-size: 26px; font-weight: 700; letter-spacing: -.02em; color: #fff">{{ item.label }}</a>
+          </sc-for>
+          <a href="https://wa.me/5583991715836" target="_blank" rel="noopener" style="margin-top: 26px; display: block; text-align: center; background: var(--roxo); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 18px">Falar com o advogado ↗</a>
+        </div>
+      </sc-if>
     </header>
 
     <div ref="{{ pageRef }}" style="transition: opacity .4s var(--ease), transform .4s var(--ease)">
@@ -100,7 +113,7 @@
               </div>
             </div>
             <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
-            <div style="position: relative; z-index: 2; flex: 1 0 auto; min-height: fit-content; display: flex; align-items: center; justify-content: center; max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 120px 40px 32px; pointer-events: none">
+            <div style="position: relative; z-index: 2; flex: 1 0 auto; min-height: fit-content; display: flex; align-items: center; justify-content: center; max-width: var(--wrap); margin: 0 auto; width: 100%; padding: {{ pBrand }}; pointer-events: none">
               <span style="display: inline-flex; align-items: flex-end; font-family: var(--brand); font-weight: 800; font-size: clamp(46px, 9vw, 118px); line-height: .88; letter-spacing: -.045em; text-transform: uppercase; color: var(--paper-2)">
                 <span>
                   <span style="display: block">Vieira-</span>
@@ -109,35 +122,59 @@
                 <i style="width: 24px; height: 24px; background: var(--roxo); display: block; margin-left: 6px; margin-bottom: 5px; flex: 0 0 auto"></i>
               </span>
             </div>
-            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 0 40px 88px">
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 0 {{ pSide }} 88px">
               <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.62); margin-bottom: 18px">CONSULTORIA URBANÍSTICA E IMOBILIÁRIA</span>
               <h1 style="font-family: var(--display); color: #fff; max-width: 20ch; font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; margin-bottom: 32px">Todo empreendimento começa pela legislação.</h1>
               <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Button" variant="white" arrow="{{ yes }}" onClick="{{ goConsultoria }}" hint-size="240px,44px">Entenda como funciona</x-import>
             </div>
           </section>
 
-          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
-              <div data-reveal="1" style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 28px 56px; align-items: end; margin-bottom: 64px">
-                <h2 style="font-family: var(--display); font-size: var(--fs-decl); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">Segurança urbanística com visão imobiliária e tributária.</h2>
-                <p style="margin: 0; font-size: var(--fs-note); color: var(--ink-3); max-width: var(--measure-note)">Todo empreendimento esbarra nas mesmas três dúvidas. Quando tratadas por profissionais isolados, o projeto trava na prefeitura ou perde margem financeira.</p>
+          <section style="padding: {{ pSec }} 0; background: var(--ink); color: #fff">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
+              <div data-reveal="1" style="display: grid; grid-template-columns: {{ gSplit }}; gap: {{ gapSplit }}; align-items: start">
+                <div>
+                  <span style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6)">
+                    <i style="width: 9px; height: 9px; background: var(--roxo); display: block; flex: none"></i>
+                    O escritório
+                  </span>
+                  <h2 style="font-family: var(--display); font-size: var(--fs-decl); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; margin: 20px 0 0; max-width: 24ch">Assessoria jurídica e arquitetônica na mesma mesa.</h2>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 20px; max-width: var(--measure-note)">
+                  <p style="margin: 0; font-size: var(--fs-note); line-height: 1.6; color: rgba(255,255,255,.78); text-wrap: pretty">A Vieira-Rodrigues nasce de uma necessidade que advogado e arquiteta observaram no mercado de João Pessoa: decisões de empreendimento tomadas sem que direito e arquitetura conversassem entre si.</p>
+                  <p style="margin: 0; font-size: var(--fs-note); line-height: 1.6; color: rgba(255,255,255,.78); text-wrap: pretty">Trazemos uma década de experiência em São Paulo — direito de um lado, arquitetura do outro — aplicada à legislação paraibana.</p>
+                </div>
               </div>
-              <div style="display: grid; gap: 40px 36px; grid-template-columns: repeat(3, minmax(0, 1fr))">
-                <sc-for list="{{ camadas }}" as="c" hint-placeholder-count="3">
-                  <div data-reveal="1" style="border-top: 1px solid var(--ink); padding-top: 20px">
-                    <span style="display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px">{{ c.label }}</span>
-                    <h3 style="font-family: var(--display); font-size: 21px; letter-spacing: -.02em; line-height: 1.18; font-weight: 700; margin-bottom: 10px">{{ c.title }}</h3>
-                    <span style="display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px">{{ c.foco }}</span>
-                    <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-3)">{{ c.text }}</p>
+
+              <div style="display: grid; gap: {{ gapGrid }}; grid-template-columns: {{ g3 }}; margin-top: 88px">
+                <sc-for list="{{ escritorio }}" as="e" hint-placeholder-count="3">
+                  <div data-reveal="1" style="border-top: 1px solid rgba(255,255,255,.2); padding-top: 20px">
+                    <span style="display: block; font-family: var(--display); font-size: 44px; line-height: 1; letter-spacing: -.03em; font-weight: 700; margin-bottom: 16px">{{ e.num }}</span>
+                    <h3 style="font-family: var(--display); font-size: 20px; letter-spacing: -.02em; line-height: 1.18; font-weight: 700; margin: 0 0 10px">{{ e.title }}</h3>
+                    <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: rgba(255,255,255,.66)">{{ e.text }}</p>
                   </div>
                 </sc-for>
+              </div>
+
+              <div data-reveal="1" style="margin-top: 96px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.2)">
+                <span style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 32px">
+                  <i style="width: 9px; height: 9px; background: var(--roxo); display: block; flex: none"></i>
+                  Nós na mídia
+                </span>
+                <div style="display: grid; grid-template-columns: {{ g6 }}; gap: 1px">
+                  <sc-for list="{{ midia }}" as="m" hint-placeholder-count="12">
+                    <a href="{{ m.href }}" target="_blank" rel="noopener" title="{{ m.veiculo }}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; height: 108px; outline: 1px solid rgba(255,255,255,.14); background: var(--ink); transition: background .2s var(--ease)" style-hover="background: rgba(255,255,255,.07)">
+                      <img src="{{ m.logo }}" alt="{{ m.veiculo }}" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain; filter: grayscale(1) brightness(1.9) contrast(.9); opacity: .85">
+                      <span style="font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: center; padding: 0 10px">{{ m.veiculo }}</span>
+                    </a>
+                  </sc-for>
+                </div>
               </div>
             </div>
           </section>
 
-          <section style="padding: 104px 0 0; background: var(--paper); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
-              <div data-reveal="1" style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 28px 56px; align-items: start">
+          <section style="padding: {{ pSec }} 0 0; background: var(--paper); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
+              <div data-reveal="1" style="display: grid; grid-template-columns: {{ gSplit }}; gap: {{ gapSplit }}; align-items: start">
                 <div>
                   <span style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3)">
                     <i style="width: 9px; height: 9px; background: var(--roxo); display: block"></i>
@@ -151,18 +188,18 @@
                 <p style="margin: 0; font-size: var(--fs-note); color: var(--ink-3); max-width: var(--measure-note)">Todo empreendimento passa pelos serviços de base. O que separa o projeto viável do projeto travado está nos mecanismos de aproveitamento.</p>
               </div>
 
-              <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px; margin-top: 120px">
+              <div style="display: grid; grid-template-columns: {{ g5 }}; gap: 32px; margin-top: 120px">
                 <sc-for list="{{ accItems }}" as="a" hint-placeholder-count="5">
                   <div onMouseEnter="{{ a.onEnter }}" onMouseLeave="{{ a.onLeaveA }}" style="position: relative; padding-top: 20px; cursor: pointer" onClick="{{ a.onClick }}">
                     <span style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--line); display: block"></span>
-                    <span style="position: absolute; top: 0; left: 0; height: 1px; background: var(--ink); display: block; width: {{ a.barW }}; transition: width .4s var(--ease)"></span>
-                    <h3 style="font-family: var(--display); font-size: 21px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: {{ a.cor }}; transition: color .25s var(--ease)">{{ a.nome }}</h3>
+                    <span style="position: absolute; top: 0; left: 0; height: 1px; background: var(--ink); display: block; width: {{ a.barW }}; transition: {{ a.barTr }}"></span>
+                    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: {{ a.cor }}; transition: color .25s var(--ease)">{{ a.curto }}</h3>
                     <p style="margin: 14px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-3)">{{ a.texto }}</p>
                   </div>
                 </sc-for>
               </div>
             </div>
-            <div style="max-width: var(--wrap); margin: 56px auto 0; padding: 0 40px 104px">
+            <div style="max-width: var(--wrap); margin: 56px auto 0; padding: 0 {{ pSide }} 104px">
             <div style="position: relative; aspect-ratio: 21/9; overflow: hidden">
               <sc-for list="{{ accItems }}" as="a" hint-placeholder-count="5">
                 <div style="position: absolute; inset: 0; opacity: {{ a.fotoOp }}; transition: opacity .7s var(--ease)">
@@ -173,9 +210,9 @@
             </div>
           </section>
 
-          <section style="padding: 104px 0 0; background: var(--ink); color: #fff">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
-              <div data-reveal="1" style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 28px 56px; align-items: start">
+          <section style="padding: {{ pSec }} 0 0; background: var(--ink); color: #fff">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
+              <div data-reveal="1" style="display: grid; grid-template-columns: {{ gSplit }}; gap: {{ gapSplit }}; align-items: start">
                 <div>
                   <span style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.5)">
                     <i style="width: 9px; height: 9px; background: var(--roxo); display: block"></i>
@@ -192,7 +229,7 @@
                 </div>
               </div>
 
-              <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 120px">
+              <div style="display: grid; grid-template-columns: {{ g4 }}; gap: 32px; margin-top: 120px">
                 <sc-for list="{{ setores }}" as="s" hint-placeholder-count="4">
                   <div onMouseEnter="{{ s.onEnter }}" onMouseLeave="{{ s.onLeave }}" style="position: relative; padding-top: 20px; cursor: default">
                     <span style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,.16); display: block"></span>
@@ -209,8 +246,8 @@
 
 
 
-          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+          <section style="padding: {{ pSec }} 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <div data-reveal="1" style="display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 46px">
                 <div>
                   <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3)">Equipe</span>
@@ -225,7 +262,7 @@
                 <sc-for list="{{ people }}" as="p" hint-placeholder-count="4">
                   <a href="#" onClick="{{ p.onClick }}" style="scroll-snap-align: start; background: var(--ink); color: #fff; display: block; text-decoration: none; --vr-ov: 0; --vr-tint: var(--filter-photo)" style-hover="--vr-ov: 1; --vr-tint: none">
                     <div style="position: relative; aspect-ratio: 4/5; overflow: hidden">
-                      <image-slot shape="rect" id="{{ p.slotId }}" placeholder="{{ p.slotHint }}" style="width: 100%; height: 100%; filter: var(--vr-tint); transition: filter .45s var(--ease)"></image-slot>
+                      <image-slot shape="rect" id="{{ p.slotId }}" src="{{ p.img }}" placeholder="{{ p.slotHint }}" style="width: 100%; height: 100%; filter: var(--vr-tint); transition: filter .45s var(--ease)"></image-slot>
                       <div style="position: absolute; inset: 0; opacity: var(--vr-ov); transition: opacity .35s var(--ease); background: linear-gradient(180deg, rgba(20,19,16,.1), rgba(20,19,16,.72)); display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; gap: 18px">
                         <div style="display: flex; flex-direction: column; gap: 8px">
                           <sc-for list="{{ p.tags }}" as="g" hint-placeholder-count="2">
@@ -238,7 +275,7 @@
                     <div style="padding: 26px">
                       <div style="font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -.024em">{{ p.name }}</div>
                       <div style="font-size: 13px; color: rgba(255,255,255,.7); margin-top: 4px">{{ p.role }}</div>
-                      <div style="font-size: 13px; color: rgba(255,255,255,.45); margin-top: 14px">{{ p.local }}</div>
+                      <div style="font-size: 13px; color: rgba(255,255,255,.45); margin-top: 14px; width: 260px; height: 41px">{{ p.local }}</div>
                     </div>
                   </a>
                 </sc-for>
@@ -246,11 +283,11 @@
             </div>
             <sc-if value="{{ pessoaSel }}" hint-placeholder-val="{{ false }}">
               <div style="position: fixed; inset: 0; z-index: 60; background: rgba(20,19,16,.6); display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; padding: 60px 20px">
-                <div style="width: 100%; max-width: 1100px; background: #1C1B17; color: #fff; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start">
+                <div style="width: 100%; max-width: 1100px; background: #1C1B17; color: #fff; display: grid; grid-template-columns: {{ g2 }}; align-items: start">
                   <div style="position: relative; aspect-ratio: 4/5; background: var(--ink)">
-                    <image-slot shape="rect" id="{{ pessoaSel.slotId }}" placeholder="{{ pessoaSel.slotHint }}" style="width: 100%; height: 100%; filter: var(--filter-photo)"></image-slot>
+                    <image-slot shape="rect" id="{{ pessoaSel.slotId }}" src="{{ pessoaSel.img }}" placeholder="{{ pessoaSel.slotHint }}" style="width: 100%; height: 100%; filter: var(--filter-photo)"></image-slot>
                   </div>
-                  <div style="padding: 44px 44px 52px; display: flex; flex-direction: column; gap: 34px">
+                  <div style="padding: {{ pModal }}; display: flex; flex-direction: column; gap: 34px">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 24px">
                       <h3 style="margin: 0; font-family: var(--display); font-weight: 700; font-size: 38px; line-height: 1.02; letter-spacing: -.032em">{{ pessoaSel.name }}<br><span style="color: rgba(255,255,255,.42)">{{ pessoaSel.role }}</span></h3>
                       <button type="button" onClick="{{ fecharPessoa }}" aria-label="Fechar" style="flex: none; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.24); background: transparent; color: #fff; cursor: pointer; font-size: 17px; line-height: 1" style-hover="background: var(--roxo); border-color: var(--roxo)">✕</button>
@@ -258,7 +295,7 @@
                     <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.72); max-width: 62ch">{{ pessoaSel.bio }}</p>
                     <div style="display: flex; flex-direction: column">
                       <sc-for list="{{ pessoaSel.ficha }}" as="f" hint-placeholder-count="3">
-                        <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.16); font-size: 14.5px">
+                        <div style="display: grid; grid-template-columns: {{ gLabel }}; gap: 20px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.16); font-size: 14.5px">
                           <span style="color: rgba(255,255,255,.45)">{{ f.k }}</span>
                           <span>{{ f.v }}</span>
                         </div>
@@ -276,7 +313,7 @@
                       <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 12px">Credenciais</span>
                       <div style="display: flex; flex-direction: column">
                         <sc-for list="{{ pessoaSel.credenciais }}" as="c" hint-placeholder-count="3">
-                          <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.16); font-size: 14.5px">
+                          <div style="display: grid; grid-template-columns: {{ gLabel }}; gap: 20px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.16); font-size: 14.5px">
                             <span style="color: rgba(255,255,255,.45)">{{ c.k }}</span>
                             <span>{{ c.v }}</span>
                           </div>
@@ -292,9 +329,9 @@
             </sc-if>
           </section>
 
-          <section style="padding: 104px 0; background: var(--paper); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
-              <div data-reveal="1" style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 28px 56px; align-items: start; margin-bottom: 56px">
+          <section style="padding: {{ pSec }} 0; background: var(--paper); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
+              <div data-reveal="1" style="display: grid; grid-template-columns: {{ gSplit }}; gap: {{ gapSplit }}; align-items: start; margin-bottom: 56px">
                 <div>
                   <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3)">Análises</span>
                   <h2 style="font-family: var(--display); font-size: var(--fs-h2); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; margin-top: 18px">Artigos para quem<br><span style="color: var(--ink-3)">decide o investimento.</span></h2>
@@ -315,7 +352,7 @@
                     <time style="font-size: 13px; color: var(--ink-3); font-weight: 600; opacity: var(--vr-meta); transition: opacity 420ms var(--ease)">{{ i.date }}</time>
                   </a>
                 </sc-for>
-                <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px">
+                <div style="display: grid; grid-template-columns: {{ g2 }}; gap: 40px">
                   <sc-for list="{{ insightsSec }}" as="i" hint-placeholder-count="2">
                     <a data-reveal="1" href="#" onClick="{{ i.onClick }}" style="display: flex; flex-direction: column; gap: 16px; --vr-zoom: 1; --vr-tint: var(--filter-photo); --vr-meta: 1" style-hover="--vr-zoom: var(--img-zoom); --vr-tint: var(--filter-photo-hover); --vr-meta: 0">
                     <div style="position: relative; aspect-ratio: 16/11; overflow: hidden">
@@ -332,7 +369,7 @@
           </section>
 
           <section style="background: var(--roxo)">
-            <div style="max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 104px 40px; display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 56px; align-items: center">
+            <div style="max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 104px 40px; display: grid; grid-template-columns: {{ g2 }}; gap: 56px; align-items: center">
               <div style="display: flex; flex-direction: column; gap: 26px; align-items: flex-start">
                 <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink)">Primeiro passo</span>
                 <h2 style="font-family: var(--display); color: var(--ink); font-size: var(--fs-h2); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">Traga a matrícula do imóvel. A gente cuida do resto.</h2>
@@ -349,18 +386,18 @@
 
       <sc-if value="{{ isConsultoria }}" hint-placeholder-val="{{ false }}">
         <div>
-          <section style="position: relative; background: var(--ink); color: #fff; padding: 200px 0 88px; overflow: hidden; isolation: isolate">
+          <section style="position: relative; background: var(--ink); color: #fff; padding: {{ pHero }}; overflow: hidden; isolation: isolate">
             <div style="position: absolute; inset: 0; z-index: 0">
               <image-slot shape="rect" id="cons-capa" src="uploads/pexels-malcolnphoto-34398495.jpg" placeholder="Capa da consultoria" style="width: 100%; height: 100%; filter: var(--filter-hero)"></image-slot>
             </div>
             <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
-            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">A consultoria urbanística</span>
               <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 20ch">A lei do terreno, lida antes do projeto.</h1>
             </div>
           </section>
-          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px">
+          <section style="padding: {{ pSec }} 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}; display: grid; grid-template-columns: {{ g2 }}; gap: 56px">
               <div style="display: flex; flex-direction: column; gap: 20px">
                 <sc-for list="{{ consultoriaOque }}" as="p" hint-placeholder-count="4">
                   <p data-reveal="1" style="margin: 0; font-size: var(--fs-body); line-height: 1.6; max-width: var(--measure-prose)">{{ p.text }}</p>
@@ -377,19 +414,19 @@
               </div>
             </div>
           </section>
-          <section style="padding: 104px 0; background: var(--ink); color: #fff">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+          <section style="padding: {{ pSec }} 0; background: var(--ink); color: #fff">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <h2 data-reveal="1" style="font-family: var(--display); font-size: var(--fs-decl); line-height: 1.02; letter-spacing: -.032em; font-weight: 700; max-width: 26ch; margin-bottom: 56px">Uma boa solução arquitetônica sobre uma premissa jurídica errada não vira obra.</h2>
               <div style="display: flex; flex-direction: column">
                 <sc-for list="{{ consultoriaCamadas }}" as="c" hint-placeholder-count="3">
                   <div style="border-top: 1px solid rgba(255,255,255,.16)">
-                    <button type="button" onClick="{{ c.onClick }}" onMouseEnter="{{ c.onEnter }}" onMouseLeave="{{ c.onLeaveC }}" style="width: 100%; background: transparent; border: 0; cursor: pointer; color: #fff; display: grid; grid-template-columns: 64px minmax(0, 1fr) 40px; gap: 24px; align-items: baseline; text-align: left; padding: 26px 0; font-family: var(--display)" style-hover="color: rgba(255,255,255,.62)">
+                    <button type="button" onClick="{{ c.onClick }}" onMouseEnter="{{ c.onEnter }}" onMouseLeave="{{ c.onLeaveC }}" style="width: 100%; background: transparent; border: 0; cursor: pointer; color: #fff; display: grid; grid-template-columns: {{ gNum2 }}; gap: 24px; align-items: baseline; text-align: left; padding: 26px 0; font-family: var(--display)" style-hover="color: rgba(255,255,255,.62)">
                       <span style="font-size: 12px; font-weight: 700; letter-spacing: .14em; color: rgba(255,255,255,.42)">{{ c.num }}</span>
                       <span style="font-size: 28px; font-weight: 700; letter-spacing: -.026em; line-height: 1.1">{{ c.titulo }}</span>
                       <span style="font-size: 26px; font-weight: 400; text-align: right; line-height: 1">{{ c.sign }}</span>
                     </button>
                     <sc-if value="{{ c.open }}" hint-placeholder-val="{{ false }}">
-                      <div style="display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, .78fr); gap: 24px 48px; padding: 0 0 48px; animation: vr-open 620ms var(--ease) both">
+                      <div style="display: grid; grid-template-columns: {{ gNum3 }}; gap: 24px 48px; padding: 0 0 48px; animation: vr-open 620ms var(--ease) both">
                         <span></span>
                         <div>
                           <p style="margin: 0 0 18px; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.66); max-width: 46ch">{{ c.texto }}</p>
@@ -418,19 +455,19 @@
 
       <sc-if value="{{ isEsp }}" hint-placeholder-val="{{ false }}">
         <div>
-          <section style="position: relative; background: var(--ink); color: #fff; padding: 200px 0 88px; overflow: hidden; isolation: isolate">
+          <section style="position: relative; background: var(--ink); color: #fff; padding: {{ pHero }}; overflow: hidden; isolation: isolate">
             <div style="position: absolute; inset: 0; z-index: 0">
               <image-slot shape="rect" id="esp-capa" src="uploads/pexels-fabianoshow4-564869275-28410706.jpg" placeholder="Capa das especialidades" style="width: 100%; height: 100%; filter: var(--filter-hero)"></image-slot>
             </div>
             <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
-            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">Especialidades</span>
               <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 24ch">Do potencial construtivo<br>ao habite-se.</h1>
               <p style="margin: 28px 0 0; max-width: 60ch; font-size: var(--fs-lede); line-height: 1.6; color: rgba(255,255,255,.66)">Em cidades em expansão acelerada, o Direito Urbanístico deixou de ser um detalhe burocrático para se tornar o pilar central de qualquer estratégia imobiliária de sucesso. Dominar as regras do jogo urbano é o que garante a segurança do seu investimento e destrava o potencial máximo do seu projeto.</p>
             </div>
           </section>
-          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 64px; align-items: start">
+          <section style="padding: {{ pSec }} 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}; display: grid; grid-template-columns: {{ g2 }}; gap: 64px; align-items: start">
               <div>
                 <sc-for list="{{ espGroups }}" as="g" hint-placeholder-count="3">
                   <div data-reveal="1" style="margin-bottom: 44px">
@@ -475,15 +512,15 @@
 
       <sc-if value="{{ isEspDetail }}" hint-placeholder-val="{{ false }}">
         <div>
-          <section style="background: var(--ink); color: #fff; padding: 200px 0 88px">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+          <section style="background: var(--ink); color: #fff; padding: {{ pHero }}">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <a href="#" onClick="{{ goEspecialidades }}" style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">← Especialidades</a>
               <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">{{ esp.h1 }}</h1>
               <p style="margin: 28px 0 0; max-width: 52ch; font-size: var(--fs-lede); line-height: 1.6; color: rgba(255,255,255,.66)">{{ esp.curto }}</p>
             </div>
           </section>
-          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 56px; align-items: start">
+          <section style="padding: {{ pSec }} 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}; display: grid; grid-template-columns: {{ g2 }}; gap: 56px; align-items: start">
               <div data-reveal="1">
                 <p style="margin: 0 0 40px; font-size: var(--fs-body); line-height: 1.65; max-width: var(--measure-prose)">{{ esp.lei }}</p>
                 <h3 style="font-family: var(--display); font-size: 21px; letter-spacing: -.02em; font-weight: 700; margin-bottom: 18px">O que o escritório faz</h3>
@@ -521,21 +558,21 @@
 
       <sc-if value="{{ isAnalises }}" hint-placeholder-val="{{ false }}">
         <div>
-          <section style="position: relative; background: var(--ink); color: #fff; padding: 200px 0 88px; overflow: hidden; isolation: isolate">
+          <section style="position: relative; background: var(--ink); color: #fff; padding: {{ pHero }}; overflow: hidden; isolation: isolate">
             <div style="position: absolute; inset: 0; z-index: 0">
               <image-slot shape="rect" id="an-capa" src="uploads/pexels-willian-santos-44398111-16899766.jpg" placeholder="Capa das análises" style="width: 100%; height: 100%; filter: var(--filter-hero)"></image-slot>
             </div>
             <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
-            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">Análises &amp; artigos</span>
               <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">Análises &amp; artigos.</h1>
               <p style="margin: 28px 0 0; max-width: 56ch; font-size: var(--fs-lede); line-height: 1.6; color: rgba(255,255,255,.66)">Artigos técnicos e pareceres estratégicos para orientar fundos, incorporadores e proprietários em decisões de alto impacto.</p>
             </div>
           </section>
-          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+          <section style="padding: {{ pSec }} 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <h2 data-reveal="1" style="font-family: var(--display); font-size: 30px; line-height: 1.06; letter-spacing: -.03em; font-weight: 700; margin-bottom: 40px">Artigos em destaque</h2>
-              <div style="display: grid; gap: 40px; grid-template-columns: repeat(3, minmax(0, 1fr))">
+              <div style="display: grid; gap: 40px; grid-template-columns: {{ g3 }}">
                 <sc-for list="{{ insights }}" as="i" hint-placeholder-count="3">
                   <a data-reveal="1" href="#" onClick="{{ i.onClick }}" style="display: flex; flex-direction: column; gap: 16px; --vr-zoom: 1; --vr-tint: var(--filter-photo); --vr-meta: 1" style-hover="--vr-zoom: var(--img-zoom); --vr-tint: var(--filter-photo-hover); --vr-meta: 0">
                     <div style="position: relative; aspect-ratio: 1/1; overflow: hidden">
@@ -571,8 +608,8 @@
             </div>
           </section>
 
-          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 64px; align-items: start">
+          <section style="padding: {{ pSec }} 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}; display: grid; grid-template-columns: {{ g2 }}; gap: 64px; align-items: start">
               <div>
                 <div data-reveal="1" style="display: flex; flex-direction: column; gap: 18px; margin-bottom: 56px">
                   <sc-for list="{{ artigo.abertura }}" as="p" hint-placeholder-count="3">
@@ -671,18 +708,18 @@
 
       <sc-if value="{{ isContato }}" hint-placeholder-val="{{ false }}">
         <div>
-          <section style="position: relative; background: var(--ink); color: #fff; padding: 200px 0 88px; overflow: hidden; isolation: isolate">
+          <section style="position: relative; background: var(--ink); color: #fff; padding: {{ pHero }}; overflow: hidden; isolation: isolate">
             <div style="position: absolute; inset: 0; z-index: 0">
               <image-slot shape="rect" id="contato-capa" src="uploads/pexels-fabio-akamine-1315530474-29279918.jpg" placeholder="Capa do contato" style="width: 100%; height: 100%; filter: var(--filter-hero); object-position: 44% 12%"></image-slot>
             </div>
             <div style="position: absolute; inset: 0; z-index: 1; background: var(--scrim-hero); pointer-events: none"></div>
-            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+            <div style="position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">Contato</span>
               <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700; max-width: 22ch">Entre em contato</h1>
             </div>
           </section>
-          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start">
+          <section style="padding: {{ pSec }} 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}; display: grid; grid-template-columns: {{ g2 }}; gap: 56px; align-items: start">
               <div data-reveal="1" style="display: flex; flex-direction: column; gap: 20px">
                 <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-3)">Formulário de consulta</span>
                 <x-import component-from-global-scope="VieiraRodriguesDesignSystem_dddaeb.Field" label="Nome" tone="light" placeholder="Nome completo" hint-size="100%,70px"></x-import>
@@ -735,14 +772,14 @@
 
       <sc-if value="{{ isLegal }}" hint-placeholder-val="{{ false }}">
         <div>
-          <section style="background: var(--ink); color: #fff; padding: 200px 0 88px">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+          <section style="background: var(--ink); color: #fff; padding: {{ pHero }}">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <span style="display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px">Institucional</span>
               <h1 style="font-family: var(--display); font-size: var(--fs-h1); line-height: 1.03; letter-spacing: -.032em; font-weight: 700">Termos de uso</h1>
             </div>
           </section>
-          <section style="padding: 104px 0; background: var(--paper-2); color: var(--ink)">
-            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+          <section style="padding: {{ pSec }} 0; background: var(--paper-2); color: var(--ink)">
+            <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
               <div style="max-width: var(--measure-prose); display: flex; flex-direction: column; gap: 34px">
                 <sc-for list="{{ legalSecoes }}" as="s" hint-placeholder-count="6">
                   <div data-reveal="1">
@@ -760,7 +797,7 @@
   </div>
 
   <footer style="background: var(--ink); color: rgba(255,255,255,.6); padding: 88px 0 32px; font-size: 15px">
-    <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 40px">
+    <div style="max-width: var(--wrap); margin: 0 auto; padding: 0 {{ pSide }}">
       <div style="text-align: center; padding-bottom: 72px">
         <span style="display: inline-flex; align-items: flex-end; font-family: var(--brand); font-weight: 800; font-size: clamp(46px, 9vw, 118px); line-height: .88; letter-spacing: -.045em; text-transform: uppercase; color: var(--paper-2)">
           <span>
@@ -770,7 +807,7 @@
           <i style="width: 24px; height: 24px; background: var(--roxo); display: block; margin-left: 6px; margin-bottom: 5px; flex: 0 0 auto"></i>
         </span>
       </div>
-      <div style="display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 32px; padding: 46px 0 44px; border-top: 1px solid rgba(255,255,255,.16)">
+      <div style="display: grid; grid-template-columns: {{ gFoot }}; gap: 32px; padding: 46px 0 44px; border-top: 1px solid rgba(255,255,255,.16)">
         <div>
           <h4 style="color: rgba(255,255,255,.45); font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 18px">Receba as análises</h4>
           <p style="max-width: 38ch; font-size: 14.5px; margin: 0">Uma análise por vez, quando houver o que dizer. Sem periodicidade fixa.</p>
@@ -802,11 +839,11 @@
       <div style="max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 40px; display: flex; justify-content: flex-end">
         <button type="button" onClick="{{ closeSearch }}" aria-label="Fechar busca" style="background: transparent; border: 1px solid rgba(255,255,255,.32); color: #fff; font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 9px 14px; cursor: pointer" style-hover="background: rgba(255,255,255,.12)">Fechar</button>
       </div>
-      <div style="max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 0 40px 40px; flex: 1; overflow-y: auto">
+      <div style="max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 0 {{ pSide }} 40px; flex: 1; overflow-y: auto">
         <input value="{{ query }}" onChange="{{ onQuery }}" placeholder="Buscar no site" autofocus="{{ yes }}" style="width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.32); color: #fff; font-family: var(--display); font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -.03em; padding: 0 0 18px; outline: none">
         <div style="margin-top: 40px; display: flex; flex-direction: column">
           <sc-for list="{{ results }}" as="r" hint-placeholder-count="4">
-            <a href="#" onClick="{{ r.onClick }}" style="display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 24px; align-items: baseline; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.16); color: #fff" style-hover="color: rgba(255,255,255,.62)">
+            <a href="#" onClick="{{ r.onClick }}" style="display: grid; grid-template-columns: {{ g2 }}; gap: 24px; align-items: baseline; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.16); color: #fff" style-hover="color: rgba(255,255,255,.62)">
               <span style="font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -.024em">{{ r.label }}</span>
               <span style="font-size: 12px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.45); text-align: right">{{ r.sub }}</span>
             </a>
@@ -926,6 +963,27 @@ const ESP = [
     escopo: ['Planejamento de ITBI — não incidência na integralização de capital e nas operações de cisão e incorporação', 'Apuração e tese jurídica para exclusão de custos da base do ISS na construção civil', 'Gestão tributária do ganho de capital na alienação de imóveis e de créditos de potencial construtivo'],
     destaque: 'O passo tributário é o que quase ninguém dá antes de assinar. É também o que mais muda o resultado da conta.',
     relacionados: ['incorporacao-loteamento-due-diligence', 'outorga-onerosa-paga-em-obras'] },
+];
+const ACC_CURTOS = {
+  'transferencia-do-direito-de-construir': 'Direito de construir',
+  'bonus-construtivo-areas-verdes': 'Bônus construtivo',
+  'incentivos-do-centro-historico': 'Imóvel tombado',
+  'licenciamento-e-alvaras': 'Licenciamento e alvarás',
+  'viabilidade-urbanistica': 'Viabilidade urbanística',
+};
+const IMPRENSA = [
+  { veiculo: 'Estadão', href: 'https://www.estadao.com.br/sao-paulo/museu-reabre-com-historia-do-bexiga-e-do-carnaval/' },
+  { veiculo: 'UOL', href: 'https://noticias.uol.com.br/ultimas-noticias/agencia-estado/2019/02/16/museu-reabre-com-historia-do-bixiga-e-do-carnaval.htm' },
+  { veiculo: 'R7', href: 'https://noticias.r7.com/sao-paulo/depois-de-uma-decada-museu-memoria-do-bixiga-mumbi-reabre-16022019/' },
+  { veiculo: 'IstoÉ Dinheiro', href: 'https://istoedinheiro.com.br/museu-reabre-com-historia-do-bixiga-e-do-carnaval' },
+  { veiculo: 'Jornal do Brasil', href: 'https://www.jb.com.br/cultura/2019/02/981797-museu-reabre-com-historia-do-bixiga-e-do-carnaval.html' },
+  { veiculo: 'Gazeta de S. Paulo', href: 'https://www.gazetasp.com.br/cotidiano/48159-museu-da-memoria-do-bixiga-reabre/' },
+  { veiculo: 'Folha Vitória', href: 'https://www.folhavitoria.com.br/geral/museu-reabre-com-historia-do-bixiga-e-do-carnaval/' },
+  { veiculo: 'Catraca Livre', href: 'https://catracalivre.com.br/gira/mumbi-museu-do-bixiga-sp/' },
+  { veiculo: 'Instituto Bixiga', href: 'https://institutobixiga.com.br/museu-memoria-do-bixiga-mumbi-o-retrato-de-um-bairro-inteirinho/' },
+  { veiculo: 'Portal do Bixiga', href: 'https://www.portaldobixiga.com.br/nhoque-da-sorte-bixiga/' },
+  { veiculo: 'UMES', href: 'https://umes.org.br/parque-do-bixiga-ja/' },
+  { veiculo: 'Orgulho SP', href: 'https://www.facebook.com/OrgulhoSP/photos/s%C3%A9rie-museus-paulistas-museu-mem%C3%B3ria-do-bexiga-mumbi-e-se-cada-bairro-hist%C3%B3rico-/3599591493394307/' },
 ];
 const ACC_SLUGS = ['transferencia-do-direito-de-construir', 'bonus-construtivo-areas-verdes', 'incentivos-do-centro-historico', 'licenciamento-e-alvaras', 'viabilidade-urbanistica'];
 const ACC_HINTS = {
@@ -1192,8 +1250,9 @@ const PESSOAS = [
   {
     name: 'Diego Vieira',
     role: 'Fundador e advogado responsável',
-    local: 'João Pessoa · PB',
-    slotId: 'eq-diego',
+    local: 'Tributário, Imobiliário e Urbanístico Patrimônio cultural, histórico e arquitetônico',
+    slotId: 'eq-diego-3',
+    img: 'uploads/Gemini_Generated_Image_kw77p7kw77p7kw77.jpg',
     slotHint: 'Retrato do advogado',
     tags: ['Advogado', 'João Pessoa'],
     bio: 'Conduzo pessoalmente os casos de licenciamento, regularização e tributação do patrimônio. Leio a legislação até o fim, projeto o caminho antes de protocolar e sustento o enquadramento diante do órgão.',
@@ -1201,6 +1260,7 @@ const PESSOAS = [
       ['Inscrição', 'OAB/PB nº 36.529'],
       ['Atuação', 'Urbanístico · Imobiliário · Tributário'],
       ['Idiomas', 'Português · Inglês · Espanhol'],
+      ['Na imprensa', 'Reabertura do Museu Memória do Bixiga, São Paulo · 2019'],
     ],
     frentes: ['Licenciamento de obras', 'Regularização de edificações', 'ITBI e outorga onerosa', 'Viabilidade urbanística'],
     credenciais: [
@@ -1211,27 +1271,34 @@ const PESSOAS = [
   },
   {
     name: 'Gabriela Rodrigues',
-    role: 'Arquiteta · rede técnica',
-    local: 'Escopo fechado, sob coordenação jurídica',
+    role: 'Arquiteta responsável pela área técnica',
+    local: 'Estudo de massa e projeto de aprovação Compatibilização com o zoneamento e obra',
     slotId: 'eq-arquiteta',
     slotHint: 'Retrato da arquiteta',
-    tags: ['Arquiteta', 'Rede técnica'],
-    bio: 'Traduzo o parâmetro urbanístico em projeto: gabarito, recuo, taxa de ocupação e potencial construtivo. Entro no caso com escopo fechado, sob coordenação jurídica.',
+    tags: ['Arquiteta', 'Obra e projeto'],
+    bio: 'Respondo pela área de arquitetura do escritório e caminho com o Diego desde o primeiro estudo até a entrega. Traduzo o parâmetro urbanístico em projeto e conduzo a obra: gabarito, recuo, taxa de ocupação, cronograma, custo e equipe. Dez anos em arquitetura de interiores, corporativa e de varejo, com passagem por obras de alto padrão em São Paulo. Entro no caso pelo desenho e fico até o habite-se.',
     ficha: [
-      ['Atuação', 'Projeto · Aprovação · Gabarito'],
-      ['Regime', 'Escopo fechado por caso'],
-      ['Base', 'João Pessoa · PB'],
+      ['Inscrição', 'CAU nº A175222-7'],
+      ['Vínculo', 'Equipe fixa do escritório, contratada — a sociedade é individual de advocacia'],
+      ['Atuação', 'Projeto · Gestão de obra · Custos'],
+      ['Idiomas', 'Português · Inglês avançado'],
+      ['Base', 'João Pessoa · PB, com atuação em São Paulo · SP'],
     ],
-    frentes: ['Estudo de massa e gabarito', 'Projeto para aprovação', 'Compatibilização com o zoneamento'],
+    frentes: ['Estudo de massa e gabarito', 'Projeto executivo para aprovação', 'Gestão e acompanhamento de obra', 'Orçamento, cotação e controle de custo', 'Retomada de obra atrasada'],
     credenciais: [
-      ['Formação', 'Arquitetura e Urbanismo'],
-      ['Regime', 'Acionada por escopo definido, sob coordenação jurídica'],
+      ['Formação', 'Arquitetura e Urbanismo · Universidade de Taubaté, UNITAU · 2016'],
+      ['Inscrição', 'CAU nº A175222-7'],
+      ['Experiência', 'Interiores, corporativo e varejo — projeto, planejamento, custos e obra desde 2016'],
+      ['Escala', 'Entrega de 1.200 m² de intervenção corporativa em 40 dias, com três turnos simultâneos'],
+      ['Orçamento', 'Planilhas em regime turnkey para mais de 40 empresas, incluindo multinacionais'],
+      ['Mostras', 'CasaCor 2017, 2018 e 2019 e Expo Revestir 2019 — projeto executivo, montagem e operação'],
+      ['Softwares', 'AutoCAD · ArchiCAD · SketchUp · Adobe · Office'],
     ],
   },
 ];
 
 class Component extends DCLogic {
-  state = { page: 'home', slug: null, acc: 0, accC: 0, accR: 0, radarJur: 'Todos', setor: 0, hoverEsp: null, pessoa: -1, subEmail: '', searchOpen: false, query: '', scrolled: false };
+  state = { menuOpen: false, mob: typeof window !== 'undefined' && window.innerWidth <= 760, page: 'home', slug: null, acc: 0, accC: 0, accR: 0, radarJur: 'Todos', setor: 0, hoverEsp: null, pessoa: -1, subEmail: '', searchOpen: false, query: '', scrolled: false };
 
   componentDidMount() {
     this.observe();
@@ -1257,7 +1324,7 @@ class Component extends DCLogic {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     this._auto = setInterval(() => {
       this.setState((st) => ({ acc: (st.acc + 1) % 5 }));
-    }, 5200);
+    }, 5000);
   }
   componentWillUnmount() { document.removeEventListener('keydown', this.onKey); window.removeEventListener('scroll', this.onScroll); clearInterval(this._auto); clearInterval(this._autoS); }
   componentDidUpdate(prev) { if (prev.state && prev.state.page !== this.state.page) this.observe(); else this.observe(); }
@@ -1329,6 +1396,7 @@ class Component extends DCLogic {
   };
 
   renderVals() {
+    const mob = this.state.mob;
     const p = this.state.page;
     const esp = ESP.find((e) => e.slug === this.state.slug) || ESP[0];
     const q = this.state.query.trim().toLowerCase();
@@ -1405,7 +1473,9 @@ class Component extends DCLogic {
         { label: 'Especialidades', onClick: this.go('especialidades') },
         { label: 'Análises', onClick: this.go('analises') },
         { label: 'Contato', onClick: this.go('contato') },
-      ],
+      ].map((n) => Object.assign({}, n, {
+        onClickMob: (ev) => { this.setState({ menuOpen: false }); n.onClick(ev); },
+      })),
 
       searchOpen: this.state.searchOpen,
       openSearch: () => this.setState({ searchOpen: true }),
@@ -1413,6 +1483,40 @@ class Component extends DCLogic {
       query: this.state.query,
       onQuery: (e) => this.setState({ query: e.target.value }),
       results,
+
+      menuOpen: mob && this.state.menuOpen,
+      menuLabel: this.state.menuOpen ? 'Fechar' : 'Menu',
+      menuBtnDisp: mob ? 'block' : 'none',
+      navDisp: mob ? 'none' : 'flex',
+      toggleMenu: () => this.setState((st) => ({ menuOpen: !st.menuOpen })),
+      pHead: mob ? '18px 20px' : '26px 40px',
+      pBrand: mob ? '104px 20px 24px' : '120px 40px 32px',
+      gSplit: mob ? 'minmax(0, 1fr)' : 'minmax(0, 1.35fr) minmax(0, .65fr)',
+      g2: mob ? 'minmax(0, 1fr)' : 'minmax(0, 1fr) minmax(0, 1fr)',
+      g3: mob ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))',
+      g4: mob ? 'repeat(2, minmax(0, 1fr))' : 'repeat(4, minmax(0, 1fr))',
+      g5: mob ? 'repeat(2, minmax(0, 1fr))' : 'repeat(5, minmax(0, 1fr))',
+      g6: mob ? 'repeat(3, minmax(0, 1fr))' : 'repeat(6, minmax(0, 1fr))',
+      gLabel: mob ? 'minmax(0, 1fr)' : '150px minmax(0, 1fr)',
+      gFoot: mob ? 'minmax(0, 1fr)' : '1.6fr repeat(4, 1fr)',
+      gNum3: mob ? '44px minmax(0, 1fr)' : '64px minmax(0, 1fr) minmax(0, .78fr)',
+      gNum2: mob ? '44px minmax(0, 1fr) 28px' : '64px minmax(0, 1fr) 40px',
+      gapGrid: mob ? '32px 20px' : '40px 36px',
+      gapSplit: mob ? '18px' : '28px 56px',
+      pSec: mob ? '66px' : '104px',
+      pSide: mob ? '20px' : '40px',
+      pHero: mob ? '132px 0 64px' : '200px 0 88px',
+      pModal: mob ? '28px 20px 36px' : '44px 44px 52px',
+
+      escritorio: [
+        { num: '10', title: 'Anos de estrada em São Paulo', text: 'Experiência formada no mercado imobiliário mais complexo do país, em direito urbanístico, tributário e imobiliário.' },
+        { num: '02', title: 'Direito e arquitetura juntos', text: 'O estudo jurídico e a leitura de projeto acontecem na mesma análise, e não em pareceres que não se encontram.' },
+        { num: 'JP', title: 'Legislação paraibana na prática', text: 'Plano diretor, código de urbanismo, tombamento e tributação municipal de João Pessoa e região metropolitana.' }
+      ],
+
+      midia: IMPRENSA.map((m) => Object.assign({}, m, {
+        logo: 'https://www.google.com/s2/favicons?sz=64&domain=' + new URL(m.href).hostname,
+      })),
 
       camadas: [
         { label: 'O QUE', title: 'Qual é o potencial real do lote?', foco: 'Viabilidade urbanística', text: 'Zoneamento, Coeficiente de Aproveitamento (CA), gabarito, recuos, taxa de ocupação, tombamento e restrições ambientais. O que a lei autoriza direto e o que exige contrapartida.' },
@@ -1423,8 +1527,9 @@ class Component extends DCLogic {
       accItems: ACC_SLUGS.map((slug, i) => {
         const e = ESP.find((x) => x.slug === slug);
         return {
-          num: '0' + (i + 1), nome: e.nome, texto: e.lei, base: e.base,
+          num: '0' + (i + 1), nome: e.nome, curto: ACC_CURTOS[slug], texto: e.lei, base: e.base,
           barW: this.state.acc === i ? '100%' : '0%',
+          barTr: this.state.acc === i ? 'width 5s linear' : 'width .3s var(--ease)',
           cor: this.state.acc === i ? 'var(--roxo-deep)' : 'var(--ink)',
           fotoOp: this.state.acc === i ? 1 : 0,
           slotId: 'acc-' + slug, slotHint: ACC_HINTS[slug], img: ACC_IMGS[slug],

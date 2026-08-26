@@ -1491,10 +1491,10 @@ class Component extends DCLogic {
       isArtigo: p === 'artigo',
 
       navItems: [
-        { label: 'A consultoria', onClick: this.go('consultoria') },
+        { label: 'A consultoria', href: '/consultoria/' },
         { label: 'Especialidades', onClick: this.go('especialidades') },
         { label: 'Análises', onClick: this.go('analises') },
-        { label: 'Contato', onClick: this.go('contato') },
+        { label: 'Contato', href: '/contato/' },
       ].map((n) => Object.assign({}, n, {
         onClickMob: (ev) => { this.setState({ menuOpen: false }); n.onClick(ev); },
       })),
@@ -1832,8 +1832,8 @@ class Component extends DCLogic {
       footerCols: [
         { titulo: 'Especialidades', links: [{ label: 'Viabilidade urbanística', href: '/especialidades/viabilidade-urbanistica/' }, { label: 'Transferência do direito de construir', href: '/especialidades/transferencia-do-direito-de-construir/' }, { label: 'Outorga onerosa', href: '/especialidades/outorga-onerosa-paga-em-obras/' }, { label: 'Licenciamento e alvarás', href: '/especialidades/licenciamento-e-alvaras/' }, { label: 'Regularização de obra', href: '/especialidades/regularizacao-de-obra-e-imovel/' }, { label: 'Tributação imobiliária', href: '/especialidades/tributacao-da-operacao-imobiliaria/' }, { label: 'Imóvel tombado', href: '/especialidades/incentivos-do-centro-historico/' }, { label: 'Bônus construtivo e RPPN', href: '/especialidades/bonus-construtivo-areas-verdes/' }, { label: 'Operação urbana e CEPAC', href: '/especialidades/areas-especiais-ter-e-ouc/' }, { label: 'Due diligence imobiliária', href: '/especialidades/incorporacao-loteamento-due-diligence/' }, { label: 'Ver todas ↗', href: '/especialidades/' }] },
         { titulo: 'Análises', links: [{ label: 'TDC em João Pessoa', href: '/analises/transferencia-do-direito-de-construir-joao-pessoa-decreto-11266-2026/' }, { label: 'LUOS: o art. 62', href: '/analises/luos-joao-pessoa-tjpb-stf-o-que-muda-no-protocolo/' }, { label: 'ITBI e potencial construtivo', href: '/analises/itbi-potencial-construtivo-joao-pessoa-nao-incidencia/' }, { label: 'RPPN urbana', href: '/analises/rppn-urbana-bonus-construtivo-monetizacao-ambiental/' }, { label: 'Auditoria da outorga onerosa', href: '/analises/outorga-onerosa-solo-criado-auditoria-impugnacao/' }, { label: 'Anistia imobiliária', href: '/analises/anistia-imobiliaria-regularizacao-de-edificacoes/' }, { label: 'Ver todas ↗', href: '/analises/' }] },
-        { titulo: 'Escritório', links: [{ label: 'A consultoria', onClick: this.go('consultoria') }, { label: 'O advogado', onClick: this.go('consultoria') }, { label: 'Contato', onClick: this.go('contato') }] },
-        { titulo: 'Institucional', links: [{ label: 'Termos de uso', onClick: this.go('legal') }, { label: 'Política de privacidade', onClick: this.go('legal') }, { label: 'Sigilo e LGPD', onClick: this.go('legal') }] },
+        { titulo: 'Escritório', links: [{ label: 'A consultoria', onClick: this.go('consultoria') }, { label: 'O advogado', href: '/consultoria/' }, { label: 'Contato', onClick: this.go('contato') }] },
+        { titulo: 'Institucional', links: [{ label: 'Termos de uso', href: '/termos/' }, { label: 'Política de privacidade', href: '/termos/' }, { label: 'Sigilo e LGPD', href: '/termos/' }] },
         { titulo: 'Social', links: [{ label: 'Instagram', href: 'https://www.instagram.com/diegovieirarodrigues' }, { label: 'LinkedIn', href: 'https://www.linkedin.com/company/vieira-rodrigues-adv' }, { label: 'E-mail', href: 'mailto:diego@vieira-rodrigues.com' }, { label: 'WhatsApp', href: 'https://wa.me/5583991715836' }] },
       ].map((c) => ({ titulo: c.titulo, links: c.links.map((l) => ({ label: l.label, href: l.href || '#', onClick: l.onClick })) })),
     };

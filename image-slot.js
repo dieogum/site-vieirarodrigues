@@ -297,7 +297,10 @@
     // same left/top/width/height in frame-%, computed by _applyView(), so the
     // inside-mask crop and the outside-mask spill stay pixel-aligned.
     '.frame img{position:absolute;max-width:none;transform:translate(-50%,-50%);' +
-    '  -webkit-user-drag:none;user-select:none;touch-action:none}' +
+    '  -webkit-user-drag:none;user-select:none;touch-action:auto}' +
+    // touch-action:none so no modo de reenquadramento; fora dele a
+    // imagem estatica engolia o scroll vertical no celular.
+    ':host([data-reframe]) .frame img{touch-action:none}' +
     // Reframe mode (double-click): the full image spills past the mask. The
     // spill layer is sized to the IMAGE bounds so its corners are where the
     // resize handles belong. The ghost <img> inside is translucent; the real
@@ -1137,9 +1140,14 @@
           // update-the-image-data microtask runs, so same-task re-renders
           // (the pick path's credit/credit-href setAttributes) need this
           // flag, not complete, to know a load is in flight.
-          this._loadPending = true;
-          this._img.src = url;
-          this._ghost.src = url;
+          if (typeof url === 'string' && url.indexOf('{{') !== -1) {
+            // Placeholder do template ainda nao hidratado — buscar isso gera 404.
+            this._releaseMask();
+          } else {
+            this._loadPending = true;
+            this._img.src = url;
+            this._ghost.src = url;
+          }
         } else {
           // Same-src re-render — release if settled, so an ingest-set
           // spinner can't stick after a byte-identical re-upload (same

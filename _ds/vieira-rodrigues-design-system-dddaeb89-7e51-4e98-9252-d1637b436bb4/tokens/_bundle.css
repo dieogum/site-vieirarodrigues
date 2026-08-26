@@ -1,0 +1,219 @@
+/* Bundle dos tokens do design system — gerado para reduzir requisicoes.
+   Fonte: tokens/*.css + styles.css. Editar os originais, nao este arquivo. */
+
+/* --- tokens/fonts.css --- */
+/* Archivo — a única família da marca. Variable (wdth 62–125, wght 100–900). */
+@font-face{font-family:'Archivo';src:url("../assets/fonts/Archivo-Variable.woff2") format("woff2-variations"),url("../assets/fonts/Archivo-Variable.ttf") format("truetype-variations");font-weight:100 900;font-stretch:62% 125%;font-style:normal;font-display:swap}
+@font-face{font-family:'Archivo';src:url("../assets/fonts/Archivo-Italic-Variable.woff2") format("woff2-variations"),url("../assets/fonts/Archivo-Italic-Variable.ttf") format("truetype-variations");font-weight:100 900;font-stretch:62% 125%;font-style:italic;font-display:swap}
+:root{
+  --font-archivo:'Archivo',system-ui,sans-serif;
+  --display:var(--font-archivo);
+  --brand:var(--font-archivo);
+  --sans:var(--font-archivo);
+  --font-fallback:system-ui,sans-serif;
+}
+
+/* --- tokens/colors.css --- */
+/* Cor — creme quente, tinta quente e um único acento roxo.
+   Proporção alvo em qualquer peça: ~70% papel, ~25% tinta, ~5% roxo.
+   Nunca azul, nunca verde. */
+:root{
+  /* papel */
+  --paper-2:#F5F2E9;
+  --paper:#EBE7DA;
+  --stone:#DDD7C7;
+  --roxo-wash:#F1E3FE;
+  /* tinta */
+  --ink:#141310;
+  --ink-2:#2C2A25;
+  --ink-3:#6E6A60;
+  --ink-surf:#1A1815;
+  --ink-surf-2:#232019;
+  /* roxo — o acento */
+  --roxo:#A93CF7;
+  --roxo-lt:#C77BFF;
+  --roxo-deep:#8412D8;
+  /* fios */
+  --line:rgba(20,19,16,.14);
+  --line-d:rgba(255,255,255,.16);
+  /* texto sobre tinta */
+  --on-ink:#ffffff;
+  --on-ink-2:rgba(255,255,255,.66);
+  --on-ink-3:rgba(255,255,255,.48);
+
+  /* aliases semânticos — claro */
+  --bg-page:var(--paper-2);
+  --bg-alt:var(--paper);
+  --bg-dark:var(--ink);
+  --surface-dark:var(--ink-surf-2);
+  --surface-inert:var(--stone);
+  --text-body:var(--ink);
+  --text-muted:var(--ink-3);
+  --text-accent:var(--roxo-deep);
+  --text-accent-on-dark:var(--roxo-lt);
+  --accent-surface:var(--roxo);
+  --focus-ring:var(--roxo);
+  --border-hair:var(--line);
+  --border-hair-dark:var(--line-d);
+  --link:var(--roxo-deep);
+  --link-hover:var(--ink);
+}
+
+/* --- tokens/typography.css --- */
+/* Tipografia — Archivo do display à nota. Hierarquia por peso, corpo e tracking. */
+:root{
+  /* pesos */
+  --w-regular:400; /* @kind font */
+  --w-medium:500; /* @kind font */
+  --w-semibold:600; /* @kind font */
+  --w-bold:700; /* @kind font */
+  --w-black:800; /* @kind font */
+  /* corpos web */
+  --fs-brand:clamp(46px,9vw,118px); /* @kind font */
+  --fs-h1:clamp(36px,4.4vw,58px); /* @kind font */
+  --fs-h2:clamp(32px,4.4vw,56px); /* @kind font */
+  --fs-decl:clamp(28px,4.2vw,54px); /* @kind font */
+  --fs-tese:clamp(22px,2.8vw,32px); /* @kind font */
+  --fs-stat:38px; /* @kind font */
+  --fs-num:34px; /* @kind font */
+  --fs-h3:21px; /* @kind font */
+  --fs-h3-sm:19px; /* @kind font */
+  --fs-lede:17.5px; /* @kind font */
+  --fs-body:17px; /* @kind font */
+  --fs-note:16px; /* @kind font */
+  --fs-small:14.5px; /* @kind font */
+  --fs-meta:13.5px; /* @kind font */
+  --fs-base:13px; /* @kind font */
+  --fs-topbar:12.5px; /* @kind font */
+  --fs-eyebrow:11.5px; /* @kind font */
+  --fs-tema:11px; /* @kind font */
+  /* entrelinhas */
+  --lh-brand:.88; /* @kind font */
+  --lh-display:1.02; /* @kind font */
+  --lh-h1:1.03; /* @kind font */
+  --lh-h3:1.18; /* @kind font */
+  --lh-body:1.6; /* @kind font */
+  --lh-lede:1.5; /* @kind font */
+  --lh-tight:1.45; /* @kind font */
+  /* tracking */
+  --tr-brand:-.045em; /* @kind font */
+  --tr-title:-.032em; /* @kind font */
+  --tr-h3:-.02em; /* @kind font */
+  --tr-stat:-.028em; /* @kind font */
+  --tr-label:.15em; /* @kind font */
+  --tr-nav:.12em; /* @kind font */
+  /* medidas */
+  --measure-note:40ch; /* @kind spacing */
+  --measure-lede:46ch; /* @kind spacing */
+  --measure-prose:74ch; /* @kind spacing */
+
+  /* aliases semânticos */
+  --text-display:var(--fs-h1); /* @kind font */
+  --text-title:var(--fs-h2); /* @kind font */
+  --text-label:var(--fs-eyebrow); /* @kind font */
+}
+
+/* --- tokens/spacing.css --- */
+/* Espaçamento e grade — seções de 104 px (66 px no mobile), grade de 1280 px. */
+:root{
+  --sp-1:4px; --sp-2:6px; --sp-3:8px; --sp-4:10px; --sp-5:12px; --sp-6:14px; /* @kind spacing */
+  --sp-7:16px; --sp-8:18px; --sp-9:20px; --sp-10:24px; --sp-11:28px; --sp-12:32px; /* @kind spacing */
+  --sp-13:36px; --sp-14:40px; --sp-15:48px; --sp-16:56px; --sp-17:72px; --sp-18:88px; /* @kind spacing */
+  --sp-19:104px; /* @kind spacing */
+
+  --wrap:1280px; /* @kind spacing */
+  --gutter:20px; /* @kind spacing */
+  --gutter-lg:40px; /* @kind spacing */
+  --sec-y:104px; /* @kind spacing */
+  --sec-y-mobile:66px; /* @kind spacing */
+  --split-gap:28px 56px; /* @kind spacing */
+  --grid-gap:40px; /* @kind spacing */
+
+  --btn-pad:15px 24px; /* @kind spacing */
+  --pill-pad:7px 14px; /* @kind spacing */
+  --field-pad:13px 14px; /* @kind spacing */
+  --form-pad:34px; /* @kind spacing */
+
+  /* aliases semânticos */
+  --space-section:var(--sec-y); /* @kind spacing */
+  --space-block:var(--sp-16); /* @kind spacing */
+  --space-stack:var(--sp-8); /* @kind spacing */
+}
+
+/* --- tokens/borders.css --- */
+/* Forma — raio zero em tudo. A estrutura se faz com fios de 1 px,
+   quadrados roxos de 8–9 px, faixa roxa de 16 px e fio roxo de 4 px na citação. */
+:root{
+  --r:0; /* @kind radius */
+  --r-lg:0; /* @kind radius */
+  --radius:0; /* @kind radius */
+  --hair:1px; /* @kind other */
+  --border-hairline:1px solid var(--line); /* @kind other */
+  --border-hairline-dark:1px solid var(--line-d); /* @kind other */
+  --border-strong:1px solid var(--ink); /* @kind other */
+  --sq:9px; /* @kind spacing */
+  --sq-sm:8px; /* @kind spacing */
+  --faixa-h:16px; /* @kind spacing */
+  --faixa-h-doc:10px; /* @kind spacing */
+  --quote-rule:4px; /* @kind spacing */
+  --quote-indent:26px; /* @kind spacing */
+  --tick:7px; /* @kind spacing */
+}
+
+/* --- tokens/motion.css --- */
+/* Movimento — revelação no scroll, transições curtas, nada de bounce.
+   Todo movimento é suprimido em prefers-reduced-motion. */
+:root{
+  --ease:cubic-bezier(.2,.7,.2,1); /* @kind other */
+  --dur-fast:.18s; /* @kind other */
+  --dur:.2s; /* @kind other */
+  --dur-med:.25s; /* @kind other */
+  --dur-slow:.35s; /* @kind other */
+  --dur-img:.45s; /* @kind other */
+  --dur-reveal:.75s; /* @kind other */
+  --dur-hero:1s; /* @kind other */
+  --reveal-y:26px; /* @kind other */
+  --reveal-stagger:60ms; /* @kind other */
+  --img-zoom:1.03; /* @kind other */
+}
+
+/* --- tokens/effects.css --- */
+/* Efeitos — filtros de foto (a única "textura" da marca), scrim do hero e
+   o único box-shadow do sistema (botão flutuante do WhatsApp). Nada decorativo. */
+:root{
+  --filter-photo:grayscale(1) contrast(1.05); /* @kind other */
+  --filter-photo-hover:grayscale(0); /* @kind other */
+  --filter-hero:grayscale(.6) sepia(.62) saturate(1.5) brightness(.6) contrast(1.05); /* @kind other */
+  --filter-band:grayscale(1) brightness(.9); /* @kind other */
+  --scrim-hero:linear-gradient(180deg,rgba(20,19,16,.6) 0%,rgba(28,20,10,.2) 34%,rgba(20,19,16,.88) 100%); /* @kind other */
+  --header-scrolled:rgba(20,19,16,.92); /* @kind other */
+  --header-blur:blur(12px); /* @kind other */
+  --shadow-float:0 6px 22px rgba(20,19,16,.28); /* @kind shadow */
+  --ratio-photo:4/3; /* @kind other */
+  --ratio-article:16/10; /* @kind other */
+  --ratio-band:21/9; /* @kind other */
+  --ratio-carousel:1080/1350; /* @kind other */
+}
+
+/* --- tokens/base.css --- */
+/* Base — regras de elemento portadas do site v4. Sem classes utilitárias:
+   os primitivos vivem nos componentes. */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper-2);color:var(--ink);font-family:var(--sans);
+  font-size:var(--fs-body);line-height:var(--lh-body);font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;text-wrap:pretty}
+img{max-width:100%;display:block}
+a{color:var(--link);text-decoration:none;transition:color var(--dur-fast)}
+a:hover{color:var(--link-hover)}
+h1,h2,h3,h4{font-family:var(--display);font-weight:var(--w-bold);margin:0;text-wrap:balance}
+h1{font-size:var(--fs-h1);line-height:var(--lh-h1);letter-spacing:var(--tr-title)}
+h2{font-size:var(--fs-h2);line-height:var(--lh-display);letter-spacing:var(--tr-title)}
+h3{font-size:var(--fs-h3);line-height:var(--lh-h3);letter-spacing:var(--tr-h3)}
+h4{font-size:var(--fs-eyebrow);line-height:1.2;letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--ink-3)}
+p{margin:0 0 var(--sp-8)}
+::selection{background:var(--roxo);color:#fff}
+:focus-visible{outline:2px solid var(--roxo);outline-offset:0}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* --- styles.css (sem os @import) --- */

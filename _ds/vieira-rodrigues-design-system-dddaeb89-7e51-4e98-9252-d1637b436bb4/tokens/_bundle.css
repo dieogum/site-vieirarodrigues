@@ -217,3 +217,11 @@ p{margin:0 0 var(--sp-8)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 
 /* --- styles.css (sem os @import) --- */
+
+/* --- correcao de CLS ---
+   O framework esconde <x-dc> por JS (support.js: hideRawTemplate), o que faz
+   o navegador pintar o template cru antes de esconde-lo. Escondendo por CSS
+   estatico, essa primeira pintura nunca acontece. */
+x-dc{display:none}
+html{background:#141310}
+body{background:#141310;min-height:100vh;margin:0}

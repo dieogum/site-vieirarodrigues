@@ -1222,14 +1222,12 @@ const PESSOAS = [
     tags: ['Lawyer', 'João Pessoa'],
     bio: 'I run the permitting, legalisation and property tax matters myself. I read the statute to the end, plan the route before filing, and defend the position in front of the agency.',
     ficha: [
-      ['Bar', 'Brazilian Bar, OAB/PB no. 36,529'],
       ['Practice', 'Urban planning · Real estate · Tax'],
       ['Languages', 'Portuguese · English · Spanish'],
     ],
     frentes: ['Building permits', 'Legalising existing buildings', 'Transfer tax and paid building rights', 'Zoning feasibility'],
     credenciais: [
       ['Education', 'Law · Faculdades Metropolitanas Unidas, FMU · 2013'],
-      ['Bar', 'Brazilian Bar, OAB/PB no. 36,529'],
       ['Base', 'João Pessoa · PB, serving clients from São Paulo · SP'],
     ],
   },
@@ -1243,13 +1241,34 @@ const PESSOAS = [
     bio: 'I translate zoning parameters into design: height, setbacks, site coverage and buildable density. I am responsible for the design work, under my own professional registration.',
     ficha: [
       ['Practice', 'Design · Approval · Height studies'],
-      ['Engagement', 'Fixed scope per matter'],
+      ['Registration', 'CAU no. A175222-7'],
       ['Base', 'João Pessoa · PB, Brazil'],
     ],
     frentes: ['Massing and height studies', 'Design for approval', 'Alignment with the zoning rules'],
     credenciais: [
       ['Education', 'Architecture and Urbanism'],
-      ['Engagement', 'Brought in on a defined scope, under legal coordination'],
+      ['Registration', 'CAU no. A175222-7 — design issued under her own technical responsibility'],
+    ],
+  },
+  {
+    name: 'Aluiz Quaresma',
+    role: 'Civil engineer · valuation and forensic surveys',
+    local: 'Valuation reports and site surveys Construction management',
+    slotId: 'eq-engenheiro',
+    img: 'uploads/aluiz-quaresma.jpg',
+    slotHint: 'Portrait of the engineer',
+    tags: ['Civil engineering', 'Valuation'],
+    bio: 'I handle the engineering reading of the property: what it is today, what it is worth and what condition it is in. Valuation reports underpin the building-rights charge, the transfer-tax base and the pricing of development rights. Twenty-five years on site, from earthworks and drainage to industrial sheds and high-end housing. I also serve as a court-appointed expert in São Paulo and Minas Gerais.',
+    ficha: [
+      ['Registration', 'CREA-PB no. 2602014915'],
+      ['Practice', 'Valuation · Forensic surveys · Construction management'],
+      ['Base', 'São José dos Campos · SP, working in Paraíba'],
+    ],
+    frentes: ['Property valuation reports', 'Court-appointed and party expert work', 'Handover surveys', 'Construction management'],
+    credenciais: [
+      ['Education', 'Civil Engineering · Universidade do Vale do Paraíba, UNIVAP · 2000'],
+      ['Registration', 'CREA-PB no. 2602014915'],
+      ['Expert work', 'Court-appointed expert in the courts of São Paulo and Minas Gerais'],
     ],
   },
 ];
@@ -1580,7 +1599,6 @@ class Component extends DCLogic {
       })),
 
       advogadoFicha: [
-        { k: 'Bar', v: 'Brazilian Bar, OAB/PB no. 36,529' },
         { k: 'Practice', v: 'Urban planning · Real estate · Tax' },
         { k: 'Education', v: 'Law · Faculdades Metropolitanas Unidas, FMU · 2013' },
         { k: 'Further study', v: 'Tax Law, 320h · ISE Business School · 2015' },

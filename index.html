@@ -95,7 +95,7 @@
           <ul style="display: flex; flex-wrap: wrap; gap: 10px 22px; list-style: none; margin: 0; padding: 0; justify-content: flex-end">
             <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
               <li>
-                <a href="#" onClick="{{ item.onClick }}" style="position: relative; display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff; white-space: nowrap; padding-bottom: 6px" style-hover="color: rgba(255,255,255,.62)">{{ item.label }}</a>
+                <a href="{{ item.href }}" onClick="{{ item.onClick }}" style="position: relative; display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff; white-space: nowrap; padding-bottom: 6px" style-hover="color: rgba(255,255,255,.62)">{{ item.label }}</a>
               </li>
             </sc-for>
           </ul>
@@ -1481,12 +1481,12 @@ class Component extends DCLogic {
       isArtigo: p === 'artigo',
 
       navItems: [
-        { label: 'A consultoria', href: '/consultoria/' },
-        { label: 'Especialidades', onClick: this.go('especialidades') },
-        { label: 'Análises', onClick: this.go('analises') },
-        { label: 'Contato', href: '/contato/' },
+        { label: 'A consultoria', href: '/consultoria/', onClick: this.go('consultoria') },
+        { label: 'Especialidades', href: '/especialidades/', onClick: this.go('especialidades') },
+        { label: 'Análises', href: '/analises/', onClick: this.go('analises') },
+        { label: 'Contato', href: '/contato/', onClick: this.go('contato') },
       ].map((n) => Object.assign({}, n, {
-        onClickMob: (ev) => { this.setState({ menuOpen: false }); n.onClick(ev); },
+        onClickMob: (ev) => { this.setState({ menuOpen: false }); if (n.onClick) n.onClick(ev); },
       })),
 
       searchOpen: this.state.searchOpen,
